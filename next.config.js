@@ -1,4 +1,13 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const isProd = process.env.NODE_ENV === 'production';
 
-module.exports = nextConfig
+//const nextConfig = {}
+//module.exports = nextConfig
+
+
+ 
+module.exports = {
+  // Use the CDN in production and localhost for development.
+  assetPrefix: isProd ? '/fxnew/' : undefined,
+  
+}
