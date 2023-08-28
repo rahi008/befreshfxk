@@ -11,7 +11,9 @@ export default function MyDaisyUITableComponent() {
 useEffect(() => {
 async function fetchData() {
 try {
-const response = await fetch('/api');
+  const isProd = process.env.NODE_ENV === "production";
+const bsePath = isProd ? "/fxnew" : "";
+const response = await fetch(`${bsePath}/api`);
 const data = await response.json();
 setRowData(data);
 } catch (error) {
