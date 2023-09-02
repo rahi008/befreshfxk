@@ -5,8 +5,8 @@ export default function CurrentDateTime() {
   const formattedDate = format(currentDate, "eeee, d MMMM yyyy hh:mm a");
 
   return (
-    <div>
+    <span>
       {formattedDate}
-    </div>
+    </span>
   );
 }

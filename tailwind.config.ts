@@ -6,15 +6,26 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  /*theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-    },
-  },*/
-  plugins: [require("daisyui")],
+  mytheme: {
+          
+    "primary": "#9b87f2",
+             
+    "secondary": "#3c12e5",
+             
+    "accent": "#cb55d6",
+             
+    "neutral": "#2a343c",
+             
+    "base-100": "#f5eef7",
+             
+    "info": "#a1b4e8",
+             
+    "success": "#27b45d",
+             
+    "warning": "#e6851e",
+             
+    "error": "#e9221c",
+             },
+  plugins: [require("daisyui"),require('@tailwindcss/forms')],
 }
 export default config
