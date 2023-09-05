@@ -23,10 +23,10 @@ export default function CmbBox({ currencyList , onChange }: CmbBoxProps) {
 
   return (
     <Combobox as="div" value={selectedCurrency} onChange={onChange}> 
-      <div className="relative w -full rounded-md border border-gray-300 bg-white pl-3 pr-10 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"> 
+      <div className="relative w -full rounded-md border border-gray-300 bg-white pl-3 pr-10 shadow-sm focus:border-indigo-500  focus:ring-1 focus:ring-indigo-500 sm:text-sm"> 
         <span className={`fi fi-us mr-2`}></span>
         <Combobox.Input 
-          className="border-0 w-5/6 selection:border-0 focus:border-0"
+          className="border-0 w-5/6 selection:border-0 focus:ring-0"
           onChange={event => setQuery(event.target.value)}
           displayValue={(currency: Currency_rate) => `${currency.CurrencyCode} - ${currency.CurrencyTagLine}`}
         />       
