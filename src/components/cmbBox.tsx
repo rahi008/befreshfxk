@@ -27,7 +27,7 @@ export default function CmbBox({ currencyList , onChange }: CmbBoxProps) {
   const handleInputClick = () => {
     if (inputRef.current) {
       inputRef.current.value = ''; // Clear the input text when clicked
-
+      Combobox.Options.call;
     }
   };
 
@@ -50,7 +50,7 @@ export default function CmbBox({ currencyList , onChange }: CmbBoxProps) {
           <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
         </Combobox.Button>
 
-        {filteredCurrencies.length > 0 && (
+        {filteredCurrencies.length >= 0 && (
           <Combobox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
             {filteredCurrencies.map(currency => (
               <Combobox.Option

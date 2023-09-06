@@ -16,10 +16,14 @@ export default function CurrencyConverter() {
   const [toCurrency, setToCurrency] = useState<Currency_rate>();
   const [convertedAmount, setConvertedAmount] = useState(0);
   const inputAmntRef = useRef<HTMLInputElement | null>(null);
+  const [isHidden, setIsHidden] = useState(true);
+
+
 
   const handleConvert = () => {
     // Implement your currency conversion logic here
     // For demonstration purposes, let's just show a random amount
+    setIsHidden(false);
     if(fromCurrency === toCurrency) 
     {
       console.log('invalid');
@@ -27,13 +31,13 @@ export default function CurrencyConverter() {
       setShowModal(true);
     }
     else{
-      if(fromCurrency?.CurrencyCode == "BDT"){
-        const convertedAmount = Number(toCurrency?.Selling_Rate) * Number(inputAmntRef.current?.value);
+      if(toCurrency?.CurrencyCode == "BDT"){
+        const convertedAmount = Number(fromCurrency?.Buying_Rate) * Number(inputAmntRef.current?.value);
         setConvertedAmount(convertedAmount);
       }
-      else if(toCurrency?.CurrencyCode == "BDT")
+      else 
       {
-        const convertedAmount = Number(fromCurrency?.Selling_Rate) * Number(inputAmntRef.current?.value);
+        const convertedAmount = Number(inputAmntRef.current?.value) /Number(toCurrency?.Selling_Rate) ;
         setConvertedAmount(convertedAmount);
       }
     }
@@ -89,10 +93,10 @@ export default function CurrencyConverter() {
   return (
   <div className="border bg-gray-50 py-8 m-2 rounded shadow-lg md:m-8" id="fxConverter">
     <div className="container mx-auto text-center">
-      <h2 className="text-xl md:text-4xl underline font-bold mb-4">Currency Converter.</h2>
+      <h2 className="text-xl md:text-4xl underline font-bold mb-4">Currency Converter</h2>
       <p className='text-xs'>(Exchange Rate Last updated on: 19 August 2023, 00:00 pm)</p>
-      <div className="lg:m-24">
-        <div className="flex flex-col md:flex-row md:space-x-4">
+      <div className="lg:mx-24 my-12">
+        <div className="flex flex-col md:flex-row md:space-x-2">
           <div className="px-3 md:px-0 md:pr-0 flex justify-items-end w-full md:w-1/3 flex-col items-left sm:mr-2">
             <p className="mb-2 flex items-left">From</p>
             <CmbBox currencyList={filteredFromCurrencyList} onChange={handleFromCurrencyChange} />
@@ -128,8 +132,8 @@ export default function CurrencyConverter() {
         </div>
         <button className="bg-green-500 text-white px-4 py-2 rounded-md mt-4 mb-4" onClick={handleConvert}>
           Convert
-        </button>
-        <div className="border p-4">
+        </button> 
+        <div id="convrsnResult" className={`border p-4 ${isHidden ? 'hidden' : ''}`} >
           {convertedAmount !== null && (
 
           <>

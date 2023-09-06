@@ -1,12 +1,23 @@
 import { format } from 'date-fns';
+import { useState, useEffect } from 'react';
 
 export default function CurrentDateTime() {
-  const currentDate = new Date();
-  const formattedDate = format(currentDate, "eeee, d MMMM yyyy hh:mm a");
+  const [currentTime, setCurrentTime] = useState('');
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(format(new Date(), "eeee, d MMMM yyyy hh:mm:ss a"));
+    }, 1000);
+    
+    // Clear the interval when the component unmounts
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <span>
-      {formattedDate}
+      {currentTime}
     </span>
   );
 }
