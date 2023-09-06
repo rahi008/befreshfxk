@@ -121,7 +121,8 @@ export default function CurrencyConverter() {
             <p className="mb-2 flex items-left">Amount</p>
             {/* onChange={(e)=>
             setAmount(e.target.value)} */}
-            <input ref={inputAmntRef} type="text" placeholder='Amount' id="cnvrtAmnt" className="border p-2 rounded-md" value={amount} 
+            <input ref={inputAmntRef} type="text" placeholder='Amount' id="cnvrtAmnt" className="border p-2 rounded-md" value={amount} onChange={(e)=>
+            setAmount(e.target.value)}
             />
           </div>
         </div>
@@ -133,7 +134,7 @@ export default function CurrencyConverter() {
 
           <>
             <p className='text-xl'>You will get</p>
-            <p className="text-green-500 font-bold text-4xl">{`${toCurrency?.CurrencyCode} ${convertedAmount.toLocaleString()}`}</p>
+            <p className="text-green-500 font-bold text-4xl">{`${toCurrency?.CurrencyCode} ${convertedAmount.toLocaleString('en-in')}`}</p>
             <p className='text-red-600 flex justify-start'>*** The amount may vary subject to actual Date, Time & Rate.
               The above amount is indicative only.</p>
           </>
