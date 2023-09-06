@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShare } from '@fortawesome/free-solid-svg-icons';
 import "/node_modules/flag-icons/css/flag-icons.min.css";
@@ -12,9 +12,10 @@ export default function CurrencyConverter() {
   const [showModal, setShowModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [amount, setAmount] = useState('');
-  const [fromCurrency, setFromCurrency] = useState('');
-  const [toCurrency, setToCurrency] = useState('');
+  const [fromCurrency, setFromCurrency] = useState<Currency_rate>();
+  const [toCurrency, setToCurrency] = useState<Currency_rate>();
   const [convertedAmount, setConvertedAmount] = useState(0);
+  const inputAmntRef = useRef<HTMLInputElement | null>(null);
 
   const handleConvert = () => {
     // Implement your currency conversion logic here
@@ -26,8 +27,15 @@ export default function CurrencyConverter() {
       setShowModal(true);
     }
     else{
-      const randomAmount = Math.floor(Math.random() * 10000);
-    setConvertedAmount(randomAmount);
+      if(fromCurrency?.CurrencyCode == "BDT"){
+        const convertedAmount = Number(toCurrency?.Selling_Rate) * Number(inputAmntRef.current?.value);
+        setConvertedAmount(convertedAmount);
+      }
+      else if(toCurrency?.CurrencyCode == "BDT")
+      {
+        const convertedAmount = Number(fromCurrency?.Selling_Rate) * Number(inputAmntRef.current?.value);
+        setConvertedAmount(convertedAmount);
+      }
     }
     
   };
@@ -60,7 +68,7 @@ export default function CurrencyConverter() {
 
   
   const handleFromCurrencyChange = (selectedCurrency: Currency_rate) => {
-    setFromCurrency(selectedCurrency.CurrencyCode);
+    setFromCurrency(selectedCurrency);
 
     if (selectedCurrency.CurrencyCode.includes("BDT")) {
       setFilteredToCurrencyList(currencyList.filter(currency => currency.CurrencyCode !== "BDT"));
@@ -70,7 +78,7 @@ export default function CurrencyConverter() {
   };
 
   const handleToCurrencyChange = (selectedCurrency: Currency_rate) => {
-    setToCurrency(selectedCurrency.CurrencyCode);
+    setToCurrency(selectedCurrency);
     // if (selectedCurrency.CurrencyCode.includes("BDT") && fromCurrency === null) {
     //   setFilteredFromCurrencyList(currencyList.filter(currency => currency.CurrencyCode !== "BDT"));
     // } else {
@@ -111,8 +119,9 @@ export default function CurrencyConverter() {
           </div>
           <div className="px-3 md:px-0 flex justify-items-end md:w-1/3 flex-col items-left sm:mr-2">
             <p className="mb-2 flex items-left">Amount</p>
-            <input type="text" placeholder='Amount' className="border p-2 rounded-md" value={amount} onChange={(e)=>
-            setAmount(e.target.value)}
+            {/* onChange={(e)=>
+            setAmount(e.target.value)} */}
+            <input ref={inputAmntRef} type="text" placeholder='Amount' id="cnvrtAmnt" className="border p-2 rounded-md" value={amount} 
             />
           </div>
         </div>
@@ -124,7 +133,7 @@ export default function CurrencyConverter() {
 
           <>
             <p className='text-xl'>You will get</p>
-            <p className="text-green-500 font-bold text-4xl">{`${toCurrency} ${convertedAmount}`}</p>
+            <p className="text-green-500 font-bold text-4xl">{`${toCurrency?.CurrencyCode} ${convertedAmount.toLocaleString()}`}</p>
             <p className='text-red-600 flex justify-start'>*** The amount may vary subject to actual Date, Time & Rate.
               The above amount is indicative only.</p>
           </>

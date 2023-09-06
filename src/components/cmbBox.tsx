@@ -1,7 +1,8 @@
-import { useState, useEffect, Fragment } from 'react';
+import { useState, useEffect, Fragment, useRef } from 'react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid';
 import { Combobox } from '@headlessui/react';
 import { Currency_rate } from '@/models/semex';
+import React from 'react';
 
 interface CmbBoxProps {
   currencyList: Currency_rate[]; // Pass the currency list as a prop
@@ -16,19 +17,34 @@ export default function CmbBox({ currencyList , onChange }: CmbBoxProps) {
   console.log({currencyList});
   const [query, setQuery] = useState('');
   const [selectedCurrency, setSelectedCurrency] = useState<Currency_rate | undefined>();
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  
+  const handleCurrencyChange = (currency: Currency_rate) => {
+    setSelectedCurrency(currency); // Update selectedCurrency when a currency is selected
+    onChange(currency); // Call the onChange callback
+  };
+
+  const handleInputClick = () => {
+    if (inputRef.current) {
+      inputRef.current.value = ''; // Clear the input text when clicked
+
+    }
+  };
 
   const filteredCurrencies = query === ''
     ? currencyList
     : currencyList.filter(currency => currency.Currency_Name.toLowerCase().includes(query.toLowerCase()));
 
   return (
-    <Combobox as="div" value={selectedCurrency} onChange={onChange}> 
+    <Combobox as="div" value={selectedCurrency} onChange={handleCurrencyChange}> 
       <div className="relative w -full rounded-md border border-gray-300 bg-white pl-3 pr-10 shadow-sm focus:border-indigo-500  focus:ring-1 focus:ring-indigo-500 sm:text-sm"> 
-        <span className={`fi fi-us mr-2`}></span>
+        <span className={`fi fi-${selectedCurrency?.CountryCode} mr-2`}></span>
         <Combobox.Input 
+        ref={inputRef}
           className="border-0 w-5/6 selection:border-0 focus:ring-0"
           onChange={event => setQuery(event.target.value)}
           displayValue={(currency: Currency_rate) => `${currency.CurrencyCode} - ${currency.CurrencyTagLine}`}
+          onClick={handleInputClick}        
         />       
         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
           <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
