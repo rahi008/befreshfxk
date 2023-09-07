@@ -2,7 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-icon-large{
-    font-size: 24px;
+icon-large {
+  font-size: 24px;
 }
 
+.btn-green {
+  @apply bg-green-400 hover:bg-green-500 hover:shadow-lg px-4 py-2 rounded;
+}
+.btn-green-fw {
+  @apply bg-green-400 hover:bg-green-500 hover:shadow-lg px-4 py-2 rounded text-white;
+}
+.btn-blue {
+  @apply bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md hover:shadow-lg;
+}

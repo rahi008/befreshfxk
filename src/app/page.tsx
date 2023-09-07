@@ -1,14 +1,15 @@
-'use client'
-import ContactUs from './ContactUs'
-import ImageSlider from './ImageSlider'
-import CurrencyConverter from './CurrencyConverter'
-import OurServices from './OurServices'
-import ExchangeRate from './exRt'
-import ERate from './eRate'
+"use client";
+import ContactUs from "./ContactUs";
+import ImageSlider from "./ImageSlider";
+import CurrencyConverter from "./CurrencyConverter";
+import OurServices from "./OurServices";
+import ExchangeRate from "./exRt";
+import ERate from "./eRate";
+import { useState } from "react";
 export default function Home() {
   return (
     <>
-      <div className="relative z-10">
+      <div className="mx-2 md:mx-8 relative shadow-xl z-10">
         {/* Your slider component */}
         <ImageSlider />
       </div>
@@ -18,5 +19,5 @@ export default function Home() {
       <OurServices></OurServices>
       <ContactUs></ContactUs>
     </>
-  )
+  );
 }
