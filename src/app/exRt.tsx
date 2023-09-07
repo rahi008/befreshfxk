@@ -168,7 +168,7 @@ export default function MyDaisyUITableComponent() {
                 </td>
                 <td style={{ width: "10%" }}>
                   <Link
-                    href={"/currencyProfile/" + item.CurrencyCode}
+                    href={"/fxnew/currencyProfile/" + item.CurrencyCode}
                     className="flex justify-center btn-green"
                   >
                     View
