@@ -112,7 +112,7 @@ export default function RootLayout({
               <ul className="menu p-4 w-full max-h-fit bg-base-200 text-base-content">
                 {/* Sidebar content here */}
                 <li>
-                  <Link href="#">Home</Link>
+                  <Link href="/">Home</Link>
                 </li>
                 <li>
                   <Link href="#fxExchRt">Exchange Rate</Link>
@@ -150,7 +150,7 @@ export default function RootLayout({
             </li>
           </ul>
         </nav>
-        <div className="min-h-screen">{children}</div>
+        <div className="">{children}</div>
 
         <footer className="footer px-10 py-6 bg-gray-500 text-white">
           <div>
