@@ -31,15 +31,17 @@ export default function RootLayout({
       <body className="bg-gray-400">
         <div className="bg-gray-500 text-white px-4 md:px-8 py-2 flex justify-between items-end">
           <div className="flex items-end">
-            <Image
-              quality={100}
-              src="/fxLogo.jpg"
-              alt="BeFreshFX"
-              unoptimized={true}
-              width={24}
-              height={24}
-              className="w-16 h-16 md:w-24 md:h-24 mr-2"
-            />
+            <Link href="/">
+              <Image
+                quality={100}
+                src="/fxLogo.jpg"
+                alt="BeFreshFX"
+                unoptimized={true}
+                width={24}
+                height={24}
+                className="w-16 h-16 md:w-24 md:h-24 mr-2"
+              />
+            </Link>
             <div>
               <p className="font-bold text-xs md:text-lg">BeFreshFX</p>
               <p className="font-bold text-xs md:text-lg">Operated by:</p>
@@ -206,6 +208,12 @@ export default function RootLayout({
             </Link>
             <Link href="" className="link link-hover">
               News
+            </Link>
+            <Link
+              href="https://www.befreshfx.com/old/login.aspx"
+              className="link link-hover"
+            >
+              System Login
             </Link>
           </div>
           <div>

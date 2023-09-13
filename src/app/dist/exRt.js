@@ -1,3 +1,4 @@
+"use client";
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -36,6 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
+require("/node_modules/flag-icons/css/flag-icons.min.css");
 var react_1 = require("react");
 var dtTime_1 = require("@/components/dtTime");
 var sendusQuery_1 = require("@/components/sendusQuery");
@@ -60,8 +62,8 @@ function MyDaisyUITableComponent() {
                         case 0:
                             _a.trys.push([0, 3, , 4]);
                             isProd = process.env.NODE_ENV === "production";
-                            bsePath = isProd ? "/fxnew" : "";
-                            return [4 /*yield*/, fetch(bsePath + "/api")];
+                            bsePath = isProd ? "" : "";
+                            return [4 /*yield*/, fetch(bsePath + "/api/getCurrencyRates")];
                         case 1:
                             response = _a.sent();
                             return [4 /*yield*/, response.json()];
@@ -147,7 +149,7 @@ function MyDaisyUITableComponent() {
                                 React.createElement("path", { d: "M23.311 47.72a1.145 1.145 0 001.588-.339l15.513-23.922 16.33 3.557c.44.096.916-.088 1.177-.454L74.556 3.34l2.021 7.082a.955.955 0 101.838-.525L75.789.694a.955.955 0 00-1.182-.657l-.006.003a.922.922 0 00-.502.006L64.06 3.273a.956.956 0 10.585 1.821l7.571-2.434-15.725 21.95-16.368-3.565a1.16 1.16 0 00-1.206.499L22.971 46.131a1.15 1.15 0 00.34 1.589z" }),
                                 " "))),
                     React.createElement("td", { style: { width: "10%" } },
-                        React.createElement(link_1["default"], { href: "/fxnew/currencyProfile/" + item.CurrencyCode, className: "flex justify-center btn-green" }, "View")))); }))),
+                        React.createElement(link_1["default"], { href: "/currencyProfile/" + item.CurrencyCode, className: "flex justify-center btn-green" }, "View")))); }))),
             React.createElement("div", { className: "flex justify-end mt-4" }, !showAll ? (React.createElement("button", { onClick: handleMoreClick, className: "btn-blue" }, "More")) : (React.createElement("button", { onClick: handleLessClick, className: "btn-blue" }, "Less")))),
         React.createElement(sendusQuery_1["default"], { isOpen: isModalOpen, onClose: closeModal })));
 }

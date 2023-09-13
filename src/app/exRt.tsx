@@ -1,5 +1,7 @@
+"use client";
 import { faShare, faChartBar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { useEffect, useState } from "react";
 import CurrentDateTime from "@/components/dtTime";
 import Modal from "@/components/sendusQuery";
@@ -22,8 +24,8 @@ export default function MyDaisyUITableComponent() {
     async function fetchData() {
       try {
         const isProd = process.env.NODE_ENV === "production";
-        const bsePath = isProd ? "/fxnew" : "";
-        const response = await fetch(`${bsePath}/api`);
+        const bsePath = isProd ? "" : "";
+        const response = await fetch(`${bsePath}/api/getCurrencyRates`);
         const data = await response.json();
         setRowData(data);
       } catch (error) {
@@ -168,7 +170,7 @@ export default function MyDaisyUITableComponent() {
                 </td>
                 <td style={{ width: "10%" }}>
                   <Link
-                    href={"/fxnew/currencyProfile/" + item.CurrencyCode}
+                    href={"/currencyProfile/" + item.CurrencyCode}
                     className="flex justify-center btn-green"
                   >
                     View

@@ -1,4 +1,3 @@
-"use client";
 import ContactUs from "./ContactUs";
 import ImageSlider from "./ImageSlider";
 import CurrencyConverter from "./CurrencyConverter";

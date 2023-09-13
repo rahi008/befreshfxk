@@ -30,11 +30,21 @@ export default function CurrencyConverter() {
   const handleConvert = () => {
     // Implement your currency conversion logic here
     // For demonstration purposes, let's just show a random amount
-    setIsHidden(false);
+
+    if (
+      fromCurrency?.CurrencyCode === null ||
+      toCurrency?.CurrencyCode === null ||
+      fromCurrency?.CurrencyCode === "" ||
+      toCurrency?.CurrencyCode === "" ||
+      fromCurrency === undefined ||
+      toCurrency === undefined
+    ) {
+      alert("Please Select Both From and To Currency!");
+      return;
+    }
     if (fromCurrency === toCurrency) {
-      console.log("invalid");
       setErrorMessage("error");
-      setShowModal(true);
+      //setShowModal(true);
     } else {
       if (toCurrency?.CurrencyCode == "BDT") {
         const convertedAmount =
@@ -47,6 +57,7 @@ export default function CurrencyConverter() {
           Number(toCurrency?.Selling_Rate);
         setConvertedAmount(convertedAmount);
       }
+      setIsHidden(false);
     }
   };
   const [currencyList, setCurrencyList] = useState<Currency_rate[]>([]);
@@ -55,7 +66,7 @@ export default function CurrencyConverter() {
       try {
         const isProd = process.env.NODE_ENV === "production";
         const bsePath = isProd ? "/fxnew" : "";
-        const response = await fetch(`${bsePath}/api`);
+        const response = await fetch(`${bsePath}/api/getCurrencyRates`);
         const data = await response.json();
         setCurrencyList(data);
       } catch (error) {

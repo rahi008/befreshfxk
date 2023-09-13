@@ -1,6 +1,6 @@
-'use client'
+"use client";
 import { useState, useEffect } from "react";
-import { AgGridReact } from "ag-grid-react";
+//import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import { ColDef } from "ag-grid-community";
@@ -25,7 +25,7 @@ export default function MyGridComponent() {
         console.log(error);
       }
     }
-    
+
     fetchData();
   }, []);
   const gridOptions = {
@@ -34,41 +34,49 @@ export default function MyGridComponent() {
       topRowComponent: TopRowComponent,
     },
   };
-  const columnDefs: ColDef[] = [ // Explicitly specify the type as ColDef[]
-  {  headerName: "Custom Header",
+  const columnDefs: ColDef[] = [
+    // Explicitly specify the type as ColDef[]
+    {
+      headerName: "Custom Header",
       field: "someField",
       headerComponent: TopRowComponent, // Reference the registered component
     },
     {
-    headerName: 'Currency',
-    valueGetter: (params: any) => params.data,
-    cellRenderer: CurrencyCellRenderer, // Use the cellRenderer function
-    width:150,
-  },
-    { 
-      headerName: "We are Buying At", 
-      field: "Buying_Rate",
-      cellStyle: { justifyContent: 'center' 
+      headerName: "Currency",
+      valueGetter: (params: any) => params.data,
+      cellRenderer: CurrencyCellRenderer, // Use the cellRenderer function
+      width: 150,
     },
-    width:150,
-  },
-    { headerName: "We are Selling At", field: "Selling_Rate" ,cellStyle: { justifyContent: 'center' 
-  },
-  width:150,},
+    {
+      headerName: "We are Buying At",
+      field: "Buying_Rate",
+      cellStyle: { justifyContent: "center" },
+      width: 150,
+    },
+    {
+      headerName: "We are Selling At",
+      field: "Selling_Rate",
+      cellStyle: { justifyContent: "center" },
+      width: 150,
+    },
     // Add more columns as needed
   ];
-  
-  
+
   return (
-    <div className="text-center border bg-gray-50 py-8 m-2 rounded shadow-lg md:m-8" id="fxExchRt">
-    <h2 className="text-xl lg:text-4xl underline font-bold mb-2">Exchange Rate</h2>
-    <div className="ag-theme-balham w-full h-96 p-4 m-0" >
-      <AgGridReact
-        rowData={rowData}
-        columnDefs={columnDefs}
-        getRowHeight={getRowHeight}
-      />
-    </div>
+    <div
+      className="text-center border bg-gray-50 py-8 m-2 rounded shadow-lg md:m-8"
+      id="fxExchRt"
+    >
+      <h2 className="text-xl lg:text-4xl underline font-bold mb-2">
+        Exchange Rate
+      </h2>
+      <div className="ag-theme-balham w-full h-96 p-4 m-0">
+        <AgGridReact
+          rowData={rowData}
+          columnDefs={columnDefs}
+          getRowHeight={getRowHeight}
+        />
+      </div>
     </div>
   );
 }
