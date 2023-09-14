@@ -20,6 +20,7 @@ const OurServices: React.FC = () => {
                   height={450}
                   alt="car!"
                   className="h-auto"
+                  unoptimized={true}
                 />
               </figure>
               <div className="card-body">
@@ -40,11 +41,12 @@ const OurServices: React.FC = () => {
                   height={450}
                   alt="car!"
                   className="h-auto"
+                  unoptimized={true}
                 />
               </figure>
               <div className="card-body">
                 <h2 className="card-title">Endorsement on Passport</h2>
-                <p>How to park your car at your garage?</p>
+                <p></p>
                 <div className="card-actions justify-end">
                   <button className="btn btn-primary">More...</button>
                 </div>
