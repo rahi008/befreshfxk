@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import Image from "@/components/imge";
+import Image from "@/app/components/imge";
 export default function notFound() {
   return (
     <>

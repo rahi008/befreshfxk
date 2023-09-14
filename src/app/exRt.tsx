@@ -3,8 +3,8 @@ import { faShare, faChartBar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { useEffect, useState } from "react";
-import CurrentDateTime from "@/components/dtTime";
-import Modal from "@/components/sendusQuery";
+import CurrentDateTime from "@/app/components/dtTime";
+import Modal from "@/app/components/sendusQuery";
 import Link from "next/link";
 
 export default function MyDaisyUITableComponent() {

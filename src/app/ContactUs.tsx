@@ -1,18 +1,18 @@
 "use client";
 import { render } from "@react-email/render";
 import WelcomeTemplate from "@/app/email/welcomeMail";
-import { sendEmail } from "@/utils/email";
+import { sendEmail } from "@/app/utils/email";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ReactDOM from "react-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
-import Inpt from "@/components/InputFltName";
+import Inpt from "@/app/components/InputFltName";
 
 import {
   faLocationDot,
   faEnvelope,
   faMobile,
 } from "@fortawesome/free-solid-svg-icons";
-import { emailReq, emailReqB } from "@/models/semex";
+import { emailReq, emailReqB } from "@/app/models/semex";
 import { json } from "stream/consumers";
 
 interface IFormInput {

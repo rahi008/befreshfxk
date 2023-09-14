@@ -1,7 +1,7 @@
 import { useState, useEffect, Fragment, useRef } from "react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/24/solid";
 import { Combobox } from "@headlessui/react";
-import { Currency_rate } from "@/models/semex";
+import { Currency_rate } from "@/app/models/semex";
 import React from "react";
 
 interface CmbBoxProps {

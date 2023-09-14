@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./global.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -10,7 +10,7 @@ import {
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import { faMobile } from "@fortawesome/free-solid-svg-icons";
-import Image from "@/components/imge";
+import Image from "@/app/components/imge";
 import Link from "next/link";
 config.autoAddCss = false;
 

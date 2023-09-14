@@ -1,8 +1,8 @@
 import { render } from "@react-email/render";
 import WelcomeTemplate from "@/app/email/welcomeMail";
-import { sendEmail } from "@/utils/email";
+import { sendEmail } from "@/app/utils/email";
 import { NextResponse } from "next/server";
-import { emailReq } from "@/models/semex";
+import { emailReq } from "@/app/models/semex";
 
 export async function POST(req: Request) {
   try {

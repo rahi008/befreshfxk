@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Transition } from "@headlessui/react";
-import CmbBox from "@/components/cmbBox";
-import { Currency_rate } from "@/models/semex";
+import CmbBox from "@/app/components/cmbBox";
+import { Currency_rate } from "@/app/models/semex";
 
 export default function Modal({
   isOpen,

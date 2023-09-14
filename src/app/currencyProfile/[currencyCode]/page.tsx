@@ -1,7 +1,7 @@
-import Image from "@/components/imge";
+import Image from "@/app/components/imge";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-import knexInstance from "@/utils/knexfile";
-import { Currency_rate } from "@/models/semex";
+import knexInstance from "@/app/utils/knexfile";
+import { Currency_rate } from "@/app/models/semex";
 interface PageProps {
   params: { currencyCode: string };
 }

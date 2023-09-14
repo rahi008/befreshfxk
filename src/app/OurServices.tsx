@@ -1,8 +1,7 @@
 import React from "react";
 import { faCog, faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ServiceCard from "./ServiceCard";
-import Image from "@/components/imge";
+import Image from "@/app/components/imge";
 
 const OurServices: React.FC = () => {
   return (

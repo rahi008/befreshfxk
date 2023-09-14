@@ -1,20 +1,10 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === "production";
+const nextConfig = {
+  assetPrefix: isProd ? "/fxnew/" : "",
+  images: {
+    domains: ["localhost", "befreshfx.com", "/"],
+  },
+};
 
-//const nextConfig = {}
-//module.exports = nextConfig
-
-
- 
-module.exports = {
-  // Use the CDN in production and localhost for development.
-  assetPrefix: isProd ? '/fxnew/' : '',
-  images:{
-    domains:[
-      "localhost",
-      "befreshfx.com",
-      "/"
-    ]
-  }
-  
-}
+module.exports = nextConfig;

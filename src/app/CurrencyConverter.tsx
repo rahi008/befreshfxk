@@ -4,10 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShare } from "@fortawesome/free-solid-svg-icons";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import QueryModal from "./QueryModal";
-import CmbBox from "@/components/cmbBox";
-import { Currency_rate } from "@/models/semex";
-import DaisyUIModal from "@/components/errorModal";
-import Modal from "@/components/sendusQuery";
+import CmbBox from "@/app/components/cmbBox";
+import { Currency_rate } from "@/app/models/semex";
+import DaisyUIModal from "@/app/components/errorModal";
+import Modal from "@/app/components/sendusQuery";
 
 export default function CurrencyConverter() {
   const [showModal, setShowModal] = useState(false);

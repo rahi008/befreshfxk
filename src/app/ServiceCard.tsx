@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface ServiceCardProps {
   title: string;
@@ -7,7 +7,12 @@ interface ServiceCardProps {
   image: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, image }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({
+  title,
+  description,
+  icon,
+  image,
+}) => {
   return (
     <div className="bg-white rounded-lg p-6 shadow-md">
       <div className="mb-4">{icon}</div>

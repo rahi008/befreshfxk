@@ -1,10 +1,9 @@
-import ContactUs from "./ContactUs";
-import ImageSlider from "./ImageSlider";
-import CurrencyConverter from "./CurrencyConverter";
-import OurServices from "./OurServices";
-import ExchangeRate from "./exRt";
-import ERate from "./eRate";
+import ContactUs from "@/app/ContactUs";
+import ImageSlider from "@/app/ImageSlider";
+import CurrencyConverter from "@/app/CurrencyConverter";
+import ExchangeRate from "@/app/exRt";
 import { useState } from "react";
+import OurServices from "@/app/OurServices";
 export default function Home() {
   return (
     <>

@@ -1,8 +1,8 @@
-import sqlConfig from "@/utils/db";
-import knexInstance from "@/utils/knexfile"; // Import the Knex.js configuration
+import sqlConfig from "@/app/utils/db";
+import knexInstance from "@/app/utils/knexfile"; // Import the Knex.js configuration
 import { Knex, knex } from "knex";
 import { NextResponse } from "next/server";
-import { Currency_rate } from "@/models/semex";
+import { Currency_rate } from "@/app/models/semex";
 const sql = require("mssql");
 export async function GET() {
   try {

@@ -1,11 +1,13 @@
-import React from 'react';
-import { Currency_rate } from '@/models/semex';
+import React from "react";
+import { Currency_rate } from "@/app/models/semex";
 
 interface CurrencyCellRendererProps {
-  value:any;
+  value: any;
 }
 
-const CurrencyCellRenderer: React.FC<CurrencyCellRendererProps> = ({ value }) => {
+const CurrencyCellRenderer: React.FC<CurrencyCellRendererProps> = ({
+  value,
+}) => {
   return (
     <div className="flex items-center space-x-3">
       <div className={`text-2xl avatar fi fi-${value.CountryCode}`} />
