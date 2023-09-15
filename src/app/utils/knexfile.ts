@@ -1,7 +1,8 @@
 import { Knex, knex } from "knex";
 
+const mssql = require("mssql");
 const knexConfig: Knex.Config = {
-  client: "mssql",
+  client: mssql,
   connection: {
     server: "192.168.0.6",
     user: process.env.DB_USER,

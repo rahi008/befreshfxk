@@ -24,7 +24,7 @@ export default function MyDaisyUITableComponent() {
     async function fetchData() {
       try {
         const isProd = process.env.NODE_ENV === "production";
-        const bsePath = isProd ? "" : "";
+        const bsePath = isProd ? process.env.NEXT_PUBLIC_BASE_FOLDER : "";
         const response = await fetch(`${bsePath}/api/getCurrencyRates`);
         const data = await response.json();
         setRowData(data);
