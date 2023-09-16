@@ -8,8 +8,8 @@ interface CustomImageProps extends Omit<ImageProps, "src"> {
 
 const isProd = process.env.NODE_ENV === "production";
 const bsePath = isProd
-  ? process.env.NEXT_PUBLIC_BASE_PATH_PROD
-  : process.env.NEXT_PUBLIC_BASE_PATH_DEV;
+  ? "https://befreshfx.com/fxnew/"
+  : "http://localhost:3000/";
 //${bsePath}
 const Image: React.FC<CustomImageProps> = ({ src, ...rest }) => {
   const imagePath = `${bsePath}${src}`;

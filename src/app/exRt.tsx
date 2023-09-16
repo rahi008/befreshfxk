@@ -24,7 +24,7 @@ export default function MyDaisyUITableComponent() {
     async function fetchData() {
       try {
         const isProd = process.env.NODE_ENV === "production";
-        const bsePath = isProd ? process.env.NEXT_PUBLIC_BASE_FOLDER : "";
+        const bsePath = isProd ? "/fxnew/" : "";
         const response = await fetch(`${bsePath}/api/getCurrencyRates`, {
           //cache:'no-cache'/'no-store'
           next: { revalidate: 0 },
@@ -73,7 +73,7 @@ export default function MyDaisyUITableComponent() {
                   <div className="flex justify-start">
                     <button
                       onClick={openModal}
-                      className="bg-blue-500 text-base text-white px-4 py-2 rounded-md mr-2 md:mr-4"
+                      className="bg-blue-500 text-base text-white text px-4 py-2 rounded-md mr-2 md:mr-4"
                     >
                       Send Query
                     </button>
