@@ -6,8 +6,12 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookMessenger,
+  faInstagram,
+  faLinkedin,
   faTelegram,
+  faTwitter,
   faWhatsapp,
+  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { faMobile } from "@fortawesome/free-solid-svg-icons";
 import Image from "@/app/components/imge";
@@ -29,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-400">
-        <div className="bg-gray-500 text-white px-4 md:px-8 py-2 flex justify-between items-end">
+        <div className="bg-gray-900 text-white px-4 md:px-8 py-2 flex justify-between items-end">
           <div className="flex items-end">
             <Link href="/">
               <Image
@@ -51,22 +55,31 @@ export default function RootLayout({
             </div>
           </div>
           <div className="hidden md:flex md:flex-col md:space-x-2 md:items-end">
-            <p>+88 017 3044 4519</p>
+            <p className="text-xl">+88 017 3044 4519</p>
             <div className="flex flex-wrap space-x-2 mt-1">
               <Link href="#" className="text-white">
-                <FontAwesomeIcon icon={faMobile} className="mr-2 mt-1" />
+                <FontAwesomeIcon
+                  icon={faMobile}
+                  className="mr-2 mt-1 text-2xl hover:text-blue-400"
+                />
               </Link>
               <Link href="#" className="text-white">
-                <FontAwesomeIcon icon={faWhatsapp} className="mr-2 mt-1" />
+                <FontAwesomeIcon
+                  icon={faWhatsapp}
+                  className="mr-2 mt-1 hover:text-green-400 text-2xl"
+                />
               </Link>
               <Link href="#" className="text-white">
                 <FontAwesomeIcon
                   icon={faFacebookMessenger}
-                  className="mr-2 mt-1"
+                  className="mr-2 mt-1 hover:text-blue-600 text-2xl"
                 />
               </Link>
               <Link href="#" className="text-white">
-                <FontAwesomeIcon icon={faTelegram} className="mr-2 mt-1" />
+                <FontAwesomeIcon
+                  icon={faTelegram}
+                  className="mr-2 mt-1 hover:text-blue-400 text-2xl"
+                />
               </Link>
             </div>
           </div>
@@ -154,7 +167,35 @@ export default function RootLayout({
         </nav>
         <div className="">{children}</div>
 
-        <footer className="footer px-10 py-6 bg-gray-500 text-white">
+        <footer className="footer px-10 py-6 bg-gray-900 text-white">
+          <dialog id="aboutTheBrand" className="modal">
+            <div className="modal-box">
+              <h3 className="font-bold text-lg">About the Brand “BeFreshFX”</h3>
+              <p className="py-4">
+                &apos; BeFreshFX &apos; is a prominent Brand operated by &apos;
+                South East Money Exchange Limited &apos;, a government-approved
+                money changer. With a strong reputation in the financial
+                industry, &apos; BeFreshFX &apos; offers a wide range of
+                currency exchange services to individuals and businesses. It’s
+                expertise lies in providing efficient and secure transactions,
+                ensuring customer satisfaction.
+              </p>
+              <p className="py-4">
+                As a Brand, &apos; BeFreshFX &apos; is committed to delivering
+                competitive exchange rates, prompt service, and transparent
+                operations. Backed by the trust of being a government-approved
+                money changer, &apos; BeFreshFX &apos; aims to facilitate
+                seamless currency exchanges for its clients, making their
+                financial transactions smooth and hassle-free.
+              </p>
+              <div className="modal-action">
+                <form method="dialog">
+                  {/* if there is a button in form, it will close the modal */}
+                  <button className="btn">Close</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
           <div>
             <Link href="" className="link link-hover">
               About the Company
@@ -168,37 +209,34 @@ export default function RootLayout({
             <header className="text-white">Social</header>
             <div className="grid grid-flow-col gap-4">
               <Link href="https://twitter.com/befreshx">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  className="fill-current"
-                >
-                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-                </svg>
+                <FontAwesomeIcon
+                  icon={faTwitter}
+                  className="text-2xl hover:text-blue-400"
+                />
               </Link>
               <Link href="https://www.youtube.com/@BeFreshFX">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  className="fill-current"
-                >
-                  <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-                </svg>
+                <FontAwesomeIcon
+                  icon={faYoutube}
+                  className="text-2xl hover:text-red-700"
+                />
               </Link>
               <Link href="https://www.facebook.com/befreshfx">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  className="fill-current"
-                >
-                  <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-                </svg>
+                <FontAwesomeIcon
+                  icon={faFacebookMessenger}
+                  className="text-2xl hover:text-blue-500"
+                />
+              </Link>
+              <Link href="https://www.linkedin.com/in/befreshfx-operated-by-south-east-money-exchange-limited-0109b7228/">
+                <FontAwesomeIcon
+                  icon={faLinkedin}
+                  className="text-2xl hover:text-blue-900"
+                />
+              </Link>
+              <Link href="https://www.instagram.com/south_eastmoney_exchange_">
+                <FontAwesomeIcon
+                  icon={faInstagram}
+                  className="text-2xl hover:text-red-500"
+                />
               </Link>
             </div>
           </div>
@@ -241,7 +279,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
-        <footer className="footer footer-center bg-gray-500">
+        <footer className="footer footer-center bg-gray-900">
           <div className="border-t-2 items-center gap-0">
             <span className="block">
               <p className="text-center text-white">
@@ -259,7 +297,9 @@ export default function RootLayout({
               />
             </span>
             <span>
-              <p className="text-center text-white">A X Limited Company</p>
+              <p className="text-center text-white">
+                a &apos; X Limited &apos; Company
+              </p>
             </span>
           </div>
         </footer>

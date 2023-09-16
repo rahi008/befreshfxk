@@ -25,7 +25,10 @@ export default function MyDaisyUITableComponent() {
       try {
         const isProd = process.env.NODE_ENV === "production";
         const bsePath = isProd ? process.env.NEXT_PUBLIC_BASE_FOLDER : "";
-        const response = await fetch(`${bsePath}/api/getCurrencyRates`);
+        const response = await fetch(`${bsePath}/api/getCurrencyRates`, {
+          //cache:'no-cache'/'no-store'
+          next: { revalidate: 0 },
+        });
         const data = await response.json();
         setRowData(data);
       } catch (error) {
@@ -68,13 +71,13 @@ export default function MyDaisyUITableComponent() {
                     Bangladesh Taka
                   </div>
                   <div className="flex justify-start">
-                    <button className=" btn-blue mr-2 md:mr-4">
+                    <button
+                      onClick={openModal}
+                      className="bg-blue-500 text-base text-white px-4 py-2 rounded-md mr-2 md:mr-4"
+                    >
                       Send Query
                     </button>
-                    <button
-                      type="button"
-                      className="bg-gray-300 text-gray-700 p-2 rounded-md mr-4 "
-                    >
+                    <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md mr-4">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"

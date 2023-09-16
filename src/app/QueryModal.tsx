@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface QueryModalProps {
   isOpen: boolean;
@@ -16,10 +16,10 @@ const QueryModal: React.FC<QueryModalProps> = ({ isOpen, onClose }) => {
             X
           </button>
         </div>
-        <h2 className="text-xl font-bold mb-4">Send Us Query</h2>
+        <h2 className="text-xl font-bold mb-2">Send Us Query</h2>
         <div className="mb-4">
           <div className="flex justify-between items-center mb-2">
-          I want to 
+            I want to
             <button className="bg-blue-500 text-white px-4 py-2 rounded-md">
               Buy
             </button>
@@ -40,9 +40,21 @@ const QueryModal: React.FC<QueryModalProps> = ({ isOpen, onClose }) => {
           <div className="text-right text-gray-600">Apx: Bdt</div>
         </div>
         <div>
-          <input type="text" placeholder="Name" className="border p-2 rounded-md w-full mb-2" />
-          <input type="text" placeholder="Mobile" className="border p-2 rounded-md w-full mb-2" />
-          <input type="text" placeholder="Email" className="border p-2 rounded-md w-full" />
+          <input
+            type="text"
+            placeholder="Name"
+            className="border p-2 rounded-md w-full mb-2"
+          />
+          <input
+            type="text"
+            placeholder="Mobile"
+            className="border p-2 rounded-md w-full mb-2"
+          />
+          <input
+            type="text"
+            placeholder="Email"
+            className="border p-2 rounded-md w-full"
+          />
         </div>
         <button className="bg-green-500 text-white px-4 py-2 rounded-md mt-4">
           Submit

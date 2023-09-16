@@ -66,7 +66,10 @@ export default function CurrencyConverter() {
       try {
         const isProd = process.env.NODE_ENV === "production";
         const bsePath = isProd ? process.env.NEXT_PUBLIC_BASE_FOLDER : "";
-        const response = await fetch(`${bsePath}/api/getCurrencyRates`);
+        const response = await fetch(`${bsePath}/api/getCurrencyRates`, {
+          //cache:'no-cache'/'no-store'
+          next: { revalidate: 0 },
+        });
         const data = await response.json();
         setCurrencyList(data);
       } catch (error) {
@@ -191,7 +194,7 @@ export default function CurrencyConverter() {
           <div className="flex justify-end md:space-x-4 mt-4 sm:md:">
             <button
               onClick={openModal}
-              className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2 md:mr-4"
+              className="bg-blue-500 text-base text-white px-4 py-2 rounded-md mr-2 md:mr-4"
             >
               Send Query
             </button>
