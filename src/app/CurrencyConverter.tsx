@@ -170,7 +170,10 @@ export default function CurrencyConverter() {
               />
             </div>
           </div>
-          <button className="btn-green-fw mt-4 mb-4" onClick={handleConvert}>
+          <button
+            className="btn-green-fw mt-4 mb-4 w-1/3 text-center text-2xl md:ml-2"
+            onClick={handleConvert}
+          >
             Convert
           </button>
           <div
