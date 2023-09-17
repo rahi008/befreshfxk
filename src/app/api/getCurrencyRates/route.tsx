@@ -4,6 +4,7 @@ import { Knex, knex } from "knex";
 import { NextResponse } from "next/server";
 import { Currency_rate } from "@/app/models/semex";
 const sql = require("mssql");
+export const revalidate = 0;
 export async function GET() {
   try {
     //const knexm = require("knex")(knexConfig);
