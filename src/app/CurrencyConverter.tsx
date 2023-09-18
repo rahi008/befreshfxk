@@ -65,7 +65,7 @@ export default function CurrencyConverter() {
     async function fetchData() {
       try {
         const isProd = process.env.NODE_ENV === "production";
-        const bsePath = isProd ? process.env.BASE_FOLDER : "";
+        const bsePath = isProd ? "fxnew" : "";
         const response = await fetch(`${bsePath}/api/getCurrencyRates`, {
           //cache:'no-cache'/'no-store'
           next: { revalidate: 0 },
