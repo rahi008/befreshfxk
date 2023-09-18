@@ -197,7 +197,7 @@ export default function CurrencyConverter() {
           <div className="flex justify-end md:space-x-4 mt-4 sm:md:">
             <button
               onClick={openModal}
-              className="bg-blue-500 text-base text-white px-4 py-2 rounded-md mr-2 md:mr-4"
+              className="bg-blue-500 text-base text-white px-4 py-2 rounded-md mr-2 md:mr-2 font-bold"
             >
               Send Query
             </button>

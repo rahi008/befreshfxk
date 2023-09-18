@@ -1,12 +1,16 @@
 "use client";
-import { faShare, faChartBar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faShare,
+  faChartBar,
+  faAngleUp,
+  faAngleDown,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { useEffect, useState } from "react";
 import CurrentDateTime from "@/app/components/dtTime";
 import Modal from "@/app/components/sendusQuery";
 import Link from "next/link";
-
 export default function MyDaisyUITableComponent() {
   const [rowData, setRowData] = useState([]);
   const [displayedRows, setDisplayedRows] = useState(5);
@@ -73,7 +77,7 @@ export default function MyDaisyUITableComponent() {
                   <div className="flex justify-start">
                     <button
                       onClick={openModal}
-                      className="bg-blue-500 text-base text-white text px-4 py-2 rounded-md mr-2 md:mr-4"
+                      className="bg-blue-500 text-base text-white text px-4 py-2 rounded-md mr-2 md:mr-4 font-bold"
                     >
                       Send Query
                     </button>
@@ -478,14 +482,14 @@ export default function MyDaisyUITableComponent() {
           </tbody>
         </table>
       </div>
-      <div className="flex justify-end mt-4 mr-4">
+      <div className="flex justify-end mt-4 mr-6">
         {!showAll ? (
           <button onClick={handleMoreClick} className="btn-blue">
-            More
+            <FontAwesomeIcon icon={faAngleDown} beat />
           </button>
         ) : (
           <button onClick={handleLessClick} className="btn-blue">
-            Less
+            <FontAwesomeIcon icon={faAngleUp} beat />
           </button>
         )}
       </div>
