@@ -81,7 +81,9 @@ export default function Modal({
                 <form onSubmit={handleFormSubmit}>
                   <div className="border border-slate-600 p-2 mt-2 rounded">
                     <div className="mt-4 flex flex-row justify-between">
-                      <label className="block mb-2">I want to</label>
+                      <label className="block mb-2 font-bold text-2xl">
+                        I want to
+                      </label>
                       <span className="space-x-4">
                         {options.map((option, index) => (
                           <button
@@ -149,7 +151,7 @@ export default function Modal({
                   </div>
                 </form>
                 <label className="text-sm">
-                  BeFreshFX concern person will contact to you soon.
+                  Soon, a representative from BeFreshFX will contact you.
                 </label>
               </div>
             </div>

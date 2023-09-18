@@ -282,26 +282,10 @@ export default function RootLayout({
           </div>
         </footer>
         <footer className="footer footer-center bg-gray-900">
-          <div className="border-t-2 items-center gap-0">
-            <span className="block">
-              <p className="text-center text-white">
-                Copyright 2016-2023. South East Money Exchange Limited
-              </p>
-            </span>
-            <span className="block">
-              <Image
-                src="/XLogo.png"
-                alt="X Limited"
-                width={70}
-                height={11}
-                unoptimized={true}
-                className="h-11 mx-auto block"
-              />
-            </span>
-            <span>
-              <p className="text-center text-white">
-                a &apos; X Limited &apos; Company
-              </p>
+          <div className="border-t-2 items-center gap-0 mb-2">
+            <span className="text-center text-white">
+              Copyright 2016-2023. South East Money Exchange Limited, a &apos;X
+              Limited&apos; Company
             </span>
           </div>
         </footer>

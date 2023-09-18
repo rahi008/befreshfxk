@@ -105,29 +105,36 @@ export default function Contacts() {
         CONTACT US
       </h2>
       <div className="list-item p-1 md:flex ">
-        <div className="md:w-1/3">
-          <p className="flex justify-left underline px-4 md:px-16">Contact</p>
-          <p className="flex justify-left px-4 md:px-16">
-            <FontAwesomeIcon icon={faLocationDot} className="mr-3 mt-1" />
-            South East Money Exchange Ltd.
-          </p>
-          <p className="flex justify-left px-10 md:px-16">
-            Golden Plaza (5th Floor),
-          </p>
-          <p className="flex justify-left px-10 md:px-16">
-            1692 CDA Avenue, GEC Moor,
-          </p>
-          <p className="flex justify-left px-10 md:px-16">
-            Chattogram, Bangladesh.
-          </p>
-          <p className="flex justify-left px-4 md:px-16">
-            <FontAwesomeIcon icon={faMobile} className="mr-3 mt-1" />
-            +88 017 3044 4519
-          </p>
-          <p className="flex justify-left px-4 md:px-16">
-            <FontAwesomeIcon icon={faEnvelope} className="mr-3 mt-1" />
-            info@befreshfx.com
-          </p>
+        <div className="md:w-1/3 flex flex-col justify-between">
+          <div>
+            <p className="flex justify-left underline px-4 md:px-16">Contact</p>
+            <p className="flex justify-left px-4 md:px-16">
+              <FontAwesomeIcon icon={faLocationDot} className="mr-3 mt-1" />
+              South East Money Exchange Ltd.
+            </p>
+            <p className="flex justify-left px-10 md:px-16">
+              Golden Plaza (5th Floor),
+            </p>
+            <p className="flex justify-left px-10 md:px-16">
+              1692 CDA Avenue, GEC Moor,
+            </p>
+            <p className="flex justify-left px-10 md:px-16">
+              Chattogram, Bangladesh.
+            </p>
+            <p className="flex justify-left px-4 md:px-16">
+              <FontAwesomeIcon icon={faMobile} className="mr-3 mt-1" />
+              +88 017 3044 4519
+            </p>
+            <p className="flex justify-left px-4 md:px-16">
+              <FontAwesomeIcon icon={faEnvelope} className="mr-3 mt-1" />
+              info@befreshfx.com
+            </p>
+          </div>
+          <div>
+            <p className="font-bold flex justify-start px-4 md:px-16">
+              Govt. Approved Money Changer
+            </p>
+          </div>
         </div>
         <div className="md:w-1/3">
           <p className="flex justify-left underline px-4 md:px-16">

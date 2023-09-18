@@ -186,7 +186,7 @@ export default function CurrencyConverter() {
                 <p className="text-green-500 font-bold text-4xl">{`${toCurrency?.CurrencyCode} ${convertedAmount.toLocaleString(
                   "en-in"
                 )}`}</p>
-                <p className="text-red-600 flex justify-start">
+                <p className="flex justify-start">
                   *** The amount may vary subject to actual Date, Time & Rate.
                   The above amount is indicative only.
                 </p>
