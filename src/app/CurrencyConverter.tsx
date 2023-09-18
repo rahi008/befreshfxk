@@ -100,6 +100,10 @@ export default function CurrencyConverter() {
       setFilteredToCurrencyList(
         currencyList.filter((currency) => currency.CurrencyCode === "BDT")
       );
+      const programmaticallySelectedValue = currencyList.find(
+        (currency) => currency.CurrencyCode === "BDT"
+      );
+      setToCurrency(programmaticallySelectedValue);
     }
   };
 
@@ -124,7 +128,7 @@ export default function CurrencyConverter() {
         <p className="text-xs">
           (Exchange Rate Last updated on: 19 August 2023, 00:00 pm)
         </p>
-        <div className="lg:mx-24 my-12">
+        <div className="lg:mx-24">
           <div className="flex flex-col md:flex-row md:space-x-2">
             <div className="px-3 md:px-0 md:pr-0 flex justify-items-end w-full md:w-1/3 flex-col items-left sm:mr-2">
               <p className="mb-2 flex items-left">From</p>
@@ -146,6 +150,7 @@ export default function CurrencyConverter() {
               <CmbBox
                 currencyList={filteredToCurrencyList}
                 onChange={handleToCurrencyChange}
+                value={toCurrency}
               />
               {/* <CmbBox currencyList={currencyList} /> */}
               {/* <select className="border p-2 rounded-md" value={toCurrency} onChange={(e)=>
@@ -164,17 +169,17 @@ export default function CurrencyConverter() {
                 type="text"
                 placeholder="Amount"
                 id="cnvrtAmnt"
-                className="border p-2 rounded-md"
+                className="border p-2 rounded-md text-right"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
               />
             </div>
           </div>
           <button
-            className="btn-green-fw mt-4 mb-4 w-1/3 text-center text-2xl md:ml-2"
+            className="btn-green-fw mt-4 mb-4 w-1/3 text-center text-2xl md:ml-2 font-bold"
             onClick={handleConvert}
           >
-            Convert
+            CONVERT
           </button>
           <div
             id="convrsnResult"
@@ -201,7 +206,11 @@ export default function CurrencyConverter() {
             >
               Send Query
             </button>
-            <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md mr-4">
+            <button
+              type="button"
+              title="shareNow"
+              className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md mr-4"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

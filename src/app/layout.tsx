@@ -1,3 +1,4 @@
+"use client";
 import "./global.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -6,6 +7,7 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookMessenger,
+  faFacebook,
   faInstagram,
   faLinkedin,
   faTelegram,
@@ -170,25 +172,56 @@ export default function RootLayout({
         <div className="">{children}</div>
 
         <footer className="footer px-10 py-6 bg-gray-900 text-white">
-          <dialog id="aboutTheBrand" className="modal">
+          <dialog id="aboutTheBrand" className="modal text-black">
             <div className="modal-box">
               <h3 className="font-bold text-lg">About the Brand “BeFreshFX”</h3>
-              <p className="py-4">
-                &apos; BeFreshFX &apos; is a prominent Brand operated by &apos;
-                South East Money Exchange Limited &apos;, a government-approved
-                money changer. With a strong reputation in the financial
-                industry, &apos; BeFreshFX &apos; offers a wide range of
-                currency exchange services to individuals and businesses. It’s
-                expertise lies in providing efficient and secure transactions,
-                ensuring customer satisfaction.
+              <p className="py-4 text-justify">
+                &apos;BeFreshFX&apos; is a prominent Brand operated by
+                &apos;South East Money Exchange Limited&apos;, a
+                government-approved money changer. With a strong reputation in
+                the financial industry, &apos;BeFreshFX&apos; offers a wide
+                range of currency exchange services to individuals and
+                businesses. It’s expertise lies in providing efficient and
+                secure transactions, ensuring customer satisfaction.
               </p>
-              <p className="py-4">
-                As a Brand, &apos; BeFreshFX &apos; is committed to delivering
+              <p className="py-4 text-justify">
+                As a Brand, &apos;BeFreshFX&apos; is committed to delivering
                 competitive exchange rates, prompt service, and transparent
                 operations. Backed by the trust of being a government-approved
-                money changer, &apos; BeFreshFX &apos; aims to facilitate
-                seamless currency exchanges for its clients, making their
-                financial transactions smooth and hassle-free.
+                money changer, &apos;BeFreshFX&apos; aims to facilitate seamless
+                currency exchanges for its clients, making their financial
+                transactions smooth and hassle-free.
+              </p>
+              <div className="modal-action">
+                <form method="dialog">
+                  {/* if there is a button in form, it will close the modal */}
+                  <button className="btn">Close</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+          <dialog id="aboutTheCompany" className="modal text-black">
+            <div className="modal-box">
+              <h3 className="font-bold text-lg">About the Brand “BeFreshFX”</h3>
+              <p className="py-4 text-justify">
+                South East Money Exchange Limited, established in 2016 and based
+                in Chattogram, Bangladesh, is a reputable money exchange
+                business operating under the license from Bangladesh Bank. As a
+                subsidiary of &apos;X Limited&apos;, the company benefits from
+                the support and resources of its parent organization. Alongside
+                its sister company, &apos;Be Fresh Limited&apos;, a leading
+                travel agent and tour operator in Bangladesh, South East Money
+                Exchange provides reliable currency exchange services.
+              </p>
+              <p className="py-4 text-justify">
+                South East Money Exchange Limited, established in 2016 and based
+                in Chattogram, Bangladesh, is a reputable money exchange
+                business operating under the license from Bangladesh Bank. As a
+                subsidiary of ‘X Limited’, the company benefits from the support
+                and resources of its parent organization. Alongside its sister
+                company, ‘Be Fresh Limited’, a leading travel agent and tour
+                operator in Bangladesh, South East Money Exchange provides
+                reliable currency exchange services.
               </p>
               <div className="modal-action">
                 <form method="dialog">
@@ -199,12 +232,26 @@ export default function RootLayout({
             </div>
           </dialog>
           <div>
-            <Link href="" className="link link-hover">
+            <label
+              className="link link-hover"
+              onClick={() =>
+                (
+                  document.getElementById("aboutTheCompany") as HTMLFormElement
+                ).showModal()
+              }
+            >
               About the Company
-            </Link>
-            <Link href="" className="link link-hover">
+            </label>
+            <label
+              className="link link-hover"
+              onClick={() =>
+                (
+                  document.getElementById("aboutTheBrand") as HTMLFormElement
+                ).showModal()
+              }
+            >
               About the Brand
-            </Link>
+            </label>
             <Link href="" className="link link-hover">
               FAQ
             </Link>
@@ -224,7 +271,7 @@ export default function RootLayout({
               </Link>
               <Link href="https://www.facebook.com/befreshfx">
                 <FontAwesomeIcon
-                  icon={faFacebookMessenger}
+                  icon={faFacebook}
                   className="text-2xl hover:text-blue-500"
                 />
               </Link>
@@ -283,7 +330,7 @@ export default function RootLayout({
         </footer>
         <footer className="footer footer-center bg-gray-900">
           <div className="border-t-2 items-center gap-0 mb-2">
-            <span className="text-center text-white">
+            <span className="text-center text-white px-2">
               Copyright 2016-2023. South East Money Exchange Limited, a &apos;X
               Limited&apos; Company
             </span>

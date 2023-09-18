@@ -96,11 +96,11 @@ export default function Modal({
               <div className="p-2 md:p-6">
                 <form onSubmit={handleFormSubmit}>
                   <div className="border border-slate-600 p-2 mt-2 rounded">
-                    <div className="mt-4 flex flex-row justify-between">
+                    <div className="mt-4 flex flex-row">
                       <label className="block mb-2 font-bold text-2xl">
                         I want to
                       </label>
-                      <span className="space-x-4">
+                      <span className="space-x-4 ml-4">
                         {options.map((option, index) => (
                           <button
                             key={index}
@@ -126,13 +126,13 @@ export default function Modal({
                         ref={inptAmntRef}
                         type="text"
                         placeholder="Amount"
-                        className="border border-gray-300 rounded-md px-3 py-2 mt-2 md:mt-0"
+                        className="border border-gray-300 rounded-md px-3 py-2 mt-2 md:mt-0 text-right"
                         onChange={handleCChange}
                       />
                     </div>
 
-                    <div className="mt-4 text-right text-gray-500">
-                      Apx: BDT {amount.toLocaleString("en-in")}
+                    <div className="mt-4 text-right font-bold text-lg text-black">
+                      BDT {amount.toLocaleString("en-in")}
                     </div>
                   </div>
                   <div className="border border-slate-600 p-2 mt-2 rounded">

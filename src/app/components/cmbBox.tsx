@@ -7,20 +7,33 @@ import React from "react";
 interface CmbBoxProps {
   currencyList: Currency_rate[]; // Pass the currency list as a prop
   onChange: (selectedCurrency: Currency_rate) => void; // Add this line
+  value?: Currency_rate;
 }
 
 function classNames(...classes: (string | boolean)[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function CmbBox({ currencyList, onChange }: CmbBoxProps) {
+export default function CmbBox({
+  value = undefined,
+  currencyList,
+  onChange,
+}: CmbBoxProps) {
   console.log({ currencyList });
   const [query, setQuery] = useState("");
   const [selectedCurrency, setSelectedCurrency] = useState<
     Currency_rate | undefined
-  >();
-  const inputRef = useRef<HTMLInputElement | null>(null);
+  >(
+    value // Initialize the selectedCurrency with the value prop
+  );
 
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  useEffect(() => {
+    // Set selectedCurrency if value is provided
+    if (value !== undefined) {
+      setSelectedCurrency(value);
+    }
+  }, [value]);
   const handleCurrencyChange = (currency: Currency_rate) => {
     setSelectedCurrency(currency); // Update selectedCurrency when a currency is selected
     onChange(currency); // Call the onChange callback

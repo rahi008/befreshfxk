@@ -56,17 +56,20 @@ export default function MyDaisyUITableComponent() {
       className="border bg-gray-50 py-8 m-2 rounded shadow-lg md:m-8 text-center md:py-4"
       id="fxExchRt"
     >
+      <p className="text-xs md:text-sm flex justify-end mr-2 md:mr-8">
+        Last Update: 22 July 2023 00:00 PM
+      </p>
       <h2 className="text-xl lg:text-4xl underline font-bold mb-2">
         Exchange Rate
       </h2>
       <p className="text-sm md:text-xl">
         <CurrentDateTime />
       </p>
-      <p className="text-sm md:text-xl">(Last Update: 22 July 2023 00:00 PM)</p>
+
       <div className="overflow-x-auto p-4 lg:px-8">
         <table className="prose table shadow">
           <thead>
-            <tr>
+            <tr className="text-black">
               <th colSpan={5}>
                 <div className="flex justify-between text-sm md:text-xl flex-col md:flex-row">
                   <div>
@@ -76,12 +79,18 @@ export default function MyDaisyUITableComponent() {
                   </div>
                   <div className="flex justify-start">
                     <button
+                      type="button"
+                      title="sendQuery"
                       onClick={openModal}
                       className="bg-blue-500 text-base text-white text px-4 py-2 rounded-md mr-2 md:mr-4 font-bold"
                     >
                       Send Query
                     </button>
-                    <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md mr-4">
+                    <button
+                      type="button"
+                      title="shareNow"
+                      className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md mr-4"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -103,7 +112,7 @@ export default function MyDaisyUITableComponent() {
             </tr>
           </thead>
           <thead>
-            <tr>
+            <tr className="text-black">
               <th style={{ width: "10%" }} className={"text-sm md:text-lg"}>
                 Currency
               </th>
@@ -147,7 +156,7 @@ export default function MyDaisyUITableComponent() {
                       className={` text-2xl avatar fi fi-${item.CountryCode}`}
                     />
                     <div>
-                      <div className="text-start font-bold">
+                      <div className="text-start font-bold text-lg">
                         {item.CurrencyCode}
                       </div>
                       <div className="text-xs md:text-sm text-black">
@@ -156,14 +165,20 @@ export default function MyDaisyUITableComponent() {
                     </div>
                   </div>
                 </td>
-                <td style={{ width: "10%" }} className="text-right font-bold">
-                  {item.Buying_Rate}
+                <td
+                  style={{ width: "10%" }}
+                  className="text-right font-bold text-lg"
+                >
+                  {item.Buying_Rate.toFixed(2)}
                 </td>
-                <td style={{ width: "10%" }} className="text-right font-bold">
-                  {item.Selling_Rate}
+                <td
+                  style={{ width: "10%" }}
+                  className="text-right font-bold text-lg"
+                >
+                  {item.Selling_Rate.toFixed(2)}
                 </td>
                 <td style={{ width: "10%" }} className="text-center">
-                  <button>
+                  <button type="button" title="graph">
                     <svg
                       id="Layer_1"
                       enable-background="new 0 0 53 53"

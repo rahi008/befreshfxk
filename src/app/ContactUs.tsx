@@ -156,16 +156,16 @@ export default function Contacts() {
           <a
             href="#"
             id="openModalButton"
-            className="underline justify-start pb-2"
+            className="underline justify-start mb-2"
           >
             Tell Us More
           </a>
-          <div className="mb-4">
+          <div className="mb-2 mt-2">
             {/* <label className="block text-gray-600">Name</label> */}
             <Inpt {...register("name")} placeHolder={"Name"} id={"name"} />
           </div>
           {/* Mobile and Email */}
-          <div className="mb-4">
+          <div className="mb-2">
             <div className="flex space-x-4">
               <div className="w-1/2">
                 {/* <label className="block text-gray-600">Mobile</label> */}
@@ -187,7 +187,7 @@ export default function Contacts() {
             </div>
           </div>
           {/* Subject with dropdown */}
-          <div className="mb-4">
+          <div className="mb-2">
             {/* <label className="block text-gray-600">Subject</label> */}
             <select
               required
@@ -202,7 +202,7 @@ export default function Contacts() {
             </select>
           </div>
           {/* Details */}
-          <div className="mb-4">
+          <div className="mb-2">
             {/* <label className="block text-gray-600">Details</label> */}
             <textarea
               required
