@@ -38,19 +38,21 @@ export default function RootLayout({
             <Link href="/">
               <Image
                 quality={100}
-                src="/fxLogo.jpg"
+                src="/fxNlogo.png"
                 alt="BeFreshFX"
                 unoptimized={true}
-                width={24}
-                height={24}
-                className="w-16 h-16 md:w-24 md:h-24 mr-2"
+                width={60}
+                height={20}
+                className="w-36 h-12 md:w-60 md:h-20 mr-2"
               />
             </Link>
-            <div>
-              <p className="font-bold text-xs md:text-lg">BeFreshFX</p>
-              <p className="font-bold text-xs md:text-lg">Operated by:</p>
+            <div className="hidden md:block">
+              <p className="font-bold text- md:text-xs">Operated by:</p>
               <p className="font-bold text-xs md:text-lg">
-                South East Money Exchange Ltd.
+                South East Money Exchange Limited
+              </p>
+              <p className="font-bold text-xs md:text-xs">
+                Govt. Approved Money Changer
               </p>
             </div>
           </div>
@@ -283,7 +285,7 @@ export default function RootLayout({
           <div className="border-t-2 items-center gap-0">
             <span className="block">
               <p className="text-center text-white">
-                Copyright 2016-2023. South East Money Exchange Ltd.
+                Copyright 2016-2023. South East Money Exchange Limited
               </p>
             </span>
             <span className="block">

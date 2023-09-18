@@ -10,6 +10,7 @@ export default async function Page({ params: { currencyCode } }: PageProps) {
   const query =
     "select * from Currency_rate where CurrencyCode='" + currency + "'";
   const result1: Currency_rate = await knexInstance.raw(query);
+  console.log(result1);
   return (
     <div>
       {/* <label className="m-8 p-8 text-xl text-white">{currency}</label> */}

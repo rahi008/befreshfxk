@@ -27,7 +27,7 @@ const OurServices: React.FC = () => {
                 <h2 className="card-title">Foreign Currency Buy/Sell</h2>
                 <p>Buy</p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">More...</button>
+                  <button className="btn btn-blue">More...</button>
                 </div>
               </div>
             </div>
@@ -48,7 +48,7 @@ const OurServices: React.FC = () => {
                 <h2 className="card-title">Endorsement on Passport</h2>
                 <p></p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">More...</button>
+                  <button className="btn btn-blue">More...</button>
                 </div>
               </div>
             </div>

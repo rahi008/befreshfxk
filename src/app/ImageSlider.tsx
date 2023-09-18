@@ -4,9 +4,9 @@ import Image from "@/app/components/imge";
 import "./slider.css";
 
 const images = [
-  "/carousel/banner1.jpg",
-  "/carousel/banner2.jpg",
-  "/carousel/banner3.jpg",
+  "Banner-01.png",
+  //"/carousel/banner2.jpg",
+  //"/carousel/banner3.jpg",
   // Add more image URLs as needed
 ];
 
