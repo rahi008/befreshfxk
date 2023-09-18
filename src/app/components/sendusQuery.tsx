@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import CmbBox from "@/app/components/cmbBox";
 import { Currency_rate } from "@/app/models/semex";
@@ -10,11 +10,14 @@ export default function Modal({
   isOpen: boolean;
   onClose: () => void;
 }) {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [selectedOption, setSelectedOption] = useState<string | null>("Buy");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
   const [currencyList, setCurrencyList] = useState<Currency_rate[]>([]);
+  const [Currency, setCurrency] = useState<Currency_rate>();
+  const [amount, setAmount] = useState<number>(0);
+  const inptAmntRef = useRef<HTMLInputElement | null>(null);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -22,7 +25,7 @@ export default function Modal({
         const bsePath = isProd ? "/fxnew" : "";
         const response = await fetch(`${bsePath}/api/getCurrencyRates`);
         const data = await response.json();
-        setCurrencyList(data);
+        await setCurrencyList(data);
       } catch (error) {
         console.log(error);
       }
@@ -36,7 +39,20 @@ export default function Modal({
     e.preventDefault();
     // Handle form submission here
   };
-  const handleCurrencyChange = (selectedCurrency: Currency_rate) => {};
+  const handleCurrencyChange = (selectedCurrency: Currency_rate) => {
+    setCurrency(selectedCurrency);
+  };
+  function handleCChange() {
+    if (selectedOption == "Buy" && Currency) {
+      const tempV =
+        Number(Currency?.Selling_Rate) * Number(inptAmntRef.current?.value);
+      setAmount(tempV);
+    } else if (selectedOption == "Sell" && Currency) {
+      const tempV =
+        Number(Currency?.Buying_Rate) * Number(inptAmntRef.current?.value);
+      setAmount(tempV);
+    }
+  }
   return (
     <Transition show={isOpen} as={React.Fragment}>
       <div className="fixed inset-0 z-50 overflow-y-auto">
@@ -67,7 +83,7 @@ export default function Modal({
           >
             <div className="z-10 w-full max-w-xl mx-auto bg-white rounded-md shadow-xl">
               <div className="flex justify-between bg-teal-600  pl-6 ">
-                <h3 className="text-lg text-white font-semibold">
+                <h3 className="text-lg text-white font-semibold mt-1">
                   Send Us Query
                 </h3>
                 <button
@@ -107,14 +123,16 @@ export default function Modal({
                         onChange={handleCurrencyChange}
                       />
                       <input
+                        ref={inptAmntRef}
                         type="text"
                         placeholder="Amount"
                         className="border border-gray-300 rounded-md px-3 py-2 mt-2 md:mt-0"
+                        onChange={handleCChange}
                       />
                     </div>
 
                     <div className="mt-4 text-right text-gray-500">
-                      Apx: BDT ...
+                      Apx: BDT {amount.toLocaleString("en-in")}
                     </div>
                   </div>
                   <div className="border border-slate-600 p-2 mt-2 rounded">
