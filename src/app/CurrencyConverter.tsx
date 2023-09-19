@@ -73,9 +73,9 @@ export default function CurrencyConverter() {
           next: { revalidate: 0 },
         });
         const data = await response.json();
-        const upDt = data.find((item) => item.CurrencyCode === "USD");
-        await setLastUpdate(new Date(upDt.update_datetime));
-        setCurrencyList(data);
+        await setCurrencyList(data);
+        //const upDt = data.find((item) => item.CurrencyCode === "USD");
+        await setLastUpdate(new Date(data[0].update_datetime));
       } catch (error) {
         console.log(error);
       }

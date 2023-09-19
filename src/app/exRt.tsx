@@ -62,9 +62,9 @@ export default function MyDaisyUITableComponent() {
           next: { revalidate: 0 },
         });
         const data = await response.json();
-        const upDt = data.find((item) => item.CurrencyCode === "USD");
+        //const upDt = data.find((item) => item.CurrencyCode === "USD");
         await setRowData(data);
-        await setLastUpdate(new Date(upDt.update_datetime));
+        await setLastUpdate(new Date(data[0].update_datetime));
       } catch (error) {
         console.log(error);
       }
@@ -541,8 +541,8 @@ export default function MyDaisyUITableComponent() {
         )}
       </div>
       <div className="flex justify-start ml-2 md:ml-8">
-        *** Please note that prices are subject to change based on market
-        conditions.
+        *** Please note that the Rates may change in response to
+        market conditions.
       </div>
       <Modal isOpen={isModalOpen} onClose={closeModal} />
     </div>

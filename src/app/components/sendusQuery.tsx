@@ -130,8 +130,16 @@ export default function Modal({
                         onChange={handleCChange}
                       />
                     </div>
-
-                    <div className="mt-4 text-right font-bold text-lg text-black">
+                    <div className="text-xs text-right mb-0 mt-1 mr-3">
+                      {Currency
+                        ? `@BDT ${
+                            selectedOption == "Buy"
+                              ? Currency.Selling_Rate
+                              : Currency.Buying_Rate
+                          }`
+                        : ``}
+                    </div>
+                    <div className="mt-0 mr-3 text-right font-bold text-lg text-black">
                       BDT {amount.toLocaleString("en-in")}
                     </div>
                   </div>

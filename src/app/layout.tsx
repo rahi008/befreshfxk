@@ -253,31 +253,37 @@ export default function RootLayout({
             </Link>
             <header className="text-white">Social</header>
             <div className="grid grid-flow-col gap-4">
-              <Link href="https://twitter.com/befreshx">
+              <Link target="_blank" href="https://twitter.com/befreshx">
                 <FontAwesomeIcon
                   icon={faTwitter}
                   className="text-2xl hover:text-blue-400"
                 />
               </Link>
-              <Link href="https://www.youtube.com/@BeFreshFX">
+              <Link target="_blank" href="https://www.youtube.com/@BeFreshFX">
                 <FontAwesomeIcon
                   icon={faYoutube}
                   className="text-2xl hover:text-red-700"
                 />
               </Link>
-              <Link href="https://www.facebook.com/befreshfx">
+              <Link target="_blank" href="https://www.facebook.com/befreshfx">
                 <FontAwesomeIcon
                   icon={faFacebook}
                   className="text-2xl hover:text-blue-500"
                 />
               </Link>
-              <Link href="https://www.linkedin.com/in/befreshfx-operated-by-south-east-money-exchange-limited-0109b7228/">
+              <Link
+                target="_blank"
+                href="https://www.linkedin.com/in/befreshfx-operated-by-south-east-money-exchange-limited-0109b7228/"
+              >
                 <FontAwesomeIcon
                   icon={faLinkedin}
                   className="text-2xl hover:text-blue-900"
                 />
               </Link>
-              <Link href="https://www.instagram.com/south_eastmoney_exchange_">
+              <Link
+                target="_blank"
+                href="https://www.instagram.com/south_eastmoney_exchange_"
+              >
                 <FontAwesomeIcon
                   icon={faInstagram}
                   className="text-2xl hover:text-red-500"
@@ -327,10 +333,16 @@ export default function RootLayout({
         <footer className="footer mx-2footer-center bg-gray-900">
           <div className="w-full px-8 border-t-2 mb-2 flex flex-row justify-between">
             <span className="text-white px-2">
-              Copyright 2016-2023. South East Money Exchange Limited(A Govt.
+              Copyright 2016-2023. South East Money Exchange Limited (a Govt.
               Approved Money Change)
             </span>
-            <span className="text-white">a &apos;X Limited&apos; Company</span>
+            <Link
+              href="http://www.xlimited.xyz/"
+              target="_blank"
+              className="text-white"
+            >
+              a &apos;X Limited&apos; Company
+            </Link>
           </div>
         </footer>
       </body>

@@ -51,7 +51,7 @@ const OurServices: React.FC = () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">Endorsement on Passport</h2>
+                <h2 className="card-title">Endorsement of FC in Passport</h2>
                 <p className="text-justify">
                   We facilitate the hassle-free endorsement of foreign currency
                   in your passport, complying with all regulations. Ensure
