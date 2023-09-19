@@ -11,44 +11,55 @@ const OurServices: React.FC = () => {
           Our Services
         </h2>
         <div className=" grid grid-cols-1 m-2 md:grid-cols-2">
-          <div className="flex justify-end mb-2 md:mr-2">
+          <div className="flex justify-end mb-2 md:mr-6">
             <div className="card w-96 glass">
               <figure className="h-64">
                 <Image
                   src="54953.jpg"
                   width={500}
                   height={450}
-                  alt="car!"
+                  alt="Foreign Currency Buy/Sell"
                   className="h-auto"
                   unoptimized={true}
                 />
               </figure>
               <div className="card-body">
                 <h2 className="card-title">Foreign Currency Buy/Sell</h2>
-                <p>Buy</p>
+                <p className="text-justify">
+                  We offer seamless and secure foreign currency exchange
+                  services, ensuring competitive rates for buying and selling
+                  currencies. Trust us for all your international currency
+                  needs, whether for travel, investment, or business
+                  transactions.
+                </p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-blue">More...</button>
+                  {/* <button className="btn btn-blue">More...</button> */}
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex justify-start mb-2 md:mb-0">
+          <div className="flex justify-start mb-2">
             <div className="card w-96 glass">
               <figure className="h-64">
                 <Image
                   src="immigration_08.jpg"
                   width={500}
                   height={450}
-                  alt="car!"
+                  alt="Endorsement"
                   className="h-auto"
                   unoptimized={true}
                 />
               </figure>
               <div className="card-body">
                 <h2 className="card-title">Endorsement on Passport</h2>
-                <p></p>
+                <p className="text-justify">
+                  We facilitate the hassle-free endorsement of foreign currency
+                  in your passport, complying with all regulations. Ensure
+                  smooth travel and financial transactions abroad with our
+                  efficient and reliable service.
+                </p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-blue">More...</button>
+                  {/* <button className="btn btn-blue">More...</button> */}
                 </div>
               </div>
             </div>

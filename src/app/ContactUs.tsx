@@ -104,51 +104,59 @@ export default function Contacts() {
       <h2 className="text-xl lg:text-4xl underline font-bold mb-2">
         CONTACT US
       </h2>
-      <div className="list-item p-1 md:flex ">
-        <div className="md:w-1/3 flex flex-col justify-between">
-          <div>
-            <p className="flex justify-left underline px-4 md:px-16">Contact</p>
-            <p className="flex justify-left px-4 md:px-16">
-              <FontAwesomeIcon icon={faLocationDot} className="mr-3 mt-1" />
-              South East Money Exchange Ltd.
-            </p>
-            <p className="flex justify-left px-10 md:px-16">
-              Golden Plaza (5th Floor),
-            </p>
-            <p className="flex justify-left px-10 md:px-16">
-              1692 CDA Avenue, GEC Moor,
-            </p>
-            <p className="flex justify-left px-10 md:px-16">
-              Chattogram, Bangladesh.
-            </p>
-            <p className="flex justify-left px-4 md:px-16">
-              <FontAwesomeIcon icon={faMobile} className="mr-3 mt-1" />
-              +88 017 3044 4519
-            </p>
-            <p className="flex justify-left px-4 md:px-16">
-              <FontAwesomeIcon icon={faEnvelope} className="mr-3 mt-1" />
-              info@befreshfx.com
-            </p>
-          </div>
-          <div>
-            <p className="font-bold flex justify-start px-4 md:px-16">
-              Govt. Approved Money Changer
-            </p>
-          </div>
-        </div>
-        <div className="md:w-1/3">
-          <p className="flex justify-left underline px-4 md:px-16">
-            We Are Here
-          </p>
-          <div className="h-48 w-full flex justify-center items-center">
-            <div>
+      <div className="list-item p-1 md:flex justify-center">
+        <div className="space-y-1">
+          <div className="card lg:card-side bg-base-100 shadow-xl gap-0 border-black  border-2">
+            <div className="card-body gap-0">
+              <h2 className="card-title">Business Office</h2>
+              <p className="flex justify-left ">
+                <FontAwesomeIcon icon={faLocationDot} className="mr-3 mt-1" />
+                South East Money Exchange Limited
+              </p>
+              <p className="flex justify-left ">Golden Plaza (5th Floor)</p>
+              <p className="flex justify-left ">1692 CDA Avenue, GEC Moor</p>
+              <p className="flex justify-left ">Chattogram, Bangladesh</p>
+              <p className="flex justify-left ">
+                <FontAwesomeIcon icon={faMobile} className="mr-3 mt-1" />
+                +88 017 3044 4519
+              </p>
+              <p className="flex justify-left ">
+                <FontAwesomeIcon icon={faEnvelope} className="mr-3 mt-1" />
+                info@befreshfx.com
+              </p>
+            </div>
+            <figure className="px-4 py-2">
               <iframe
                 title="googleMap"
                 src="https://www.google.com/maps/embed/v1/place?q=South+East+Money+Exchange+Limited,+CDA+Avenue,+Chattogram,+Bangladesh&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
               ></iframe>
+            </figure>
+          </div>
+          <div className="card lg:card-side bg-base-100 shadow-xl gap-0 border-black border-2">
+            <div className="card-body gap-0">
+              <h2 className="card-title">Liaison Office</h2>
+              <p className="flex justify-left ">
+                <FontAwesomeIcon icon={faLocationDot} className="mr-3 mt-1" />
+                SmartHub (5th Floor)
+              </p>
+              <p className="flex justify-left ">RAHIM&apos;s plaza de CPDL</p>
+              <p className="flex justify-left ">Zakir Hossain Road</p>
+              <p className="flex justify-left ">Khulshi-4225</p>
+              <p className="flex justify-left ">Chattogram, Bangladesh</p>
+              <p className="flex justify-left ">
+                <FontAwesomeIcon icon={faMobile} className="mr-3 mt-1" />
+                +88 018 1003 1205
+              </p>
             </div>
+            <figure className="px-4 py-2">
+              <iframe
+                title="googleMap"
+                src="https://maps.google.com/maps?q=rahims%20plaza%20de&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              ></iframe>
+            </figure>
           </div>
         </div>
+
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="text-start px-4 md:w-1/3"
@@ -165,27 +173,24 @@ export default function Contacts() {
             <Inpt {...register("name")} placeHolder={"Name"} id={"name"} />
           </div>
           {/* Mobile and Email */}
-          <div className="mb-2">
-            <div className="flex space-x-4">
-              <div className="w-1/2">
-                {/* <label className="block text-gray-600">Mobile</label> */}
-                <Inpt
-                  {...register("mobile")}
-                  placeHolder={"Mobile"}
-                  id={"mobile"}
-                />
-              </div>
-              <div className="w-1/2">
-                {/* <label className="block text-gray-600">Email</label> */}
-                <Inpt
-                  required
-                  {...register("email")}
-                  id={"email"}
-                  placeHolder={"Email"}
-                />
-              </div>
-            </div>
+          <div className="mb-2 mt-2">
+            {/* <label className="block text-gray-600">Mobile</label> */}
+            <Inpt
+              {...register("mobile")}
+              placeHolder={"Mobile"}
+              id={"mobile"}
+            />
           </div>
+          <div className="mb-2 mt-2">
+            {/* <label className="block text-gray-600">Email</label> */}
+            <Inpt
+              required
+              {...register("email")}
+              id={"email"}
+              placeHolder={"Email"}
+            />
+          </div>
+
           {/* Subject with dropdown */}
           <div className="mb-2">
             {/* <label className="block text-gray-600">Subject</label> */}
@@ -209,16 +214,18 @@ export default function Contacts() {
               {...register("details")}
               placeholder="Details"
               className="w-full border border-gray-300 rounded-md px-3 py-2 resize-none"
-              rows={3}
+              rows={5}
             ></textarea>
           </div>
           {/* Send Button */}
-          <button
-            type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded-full"
-          >
-            Send
-          </button>
+          <div className="flex justify-end ">
+            <button
+              type="submit"
+              className="bg-blue-500 text-white px-4 py-2 rounded-md"
+            >
+              Send
+            </button>
+          </div>
         </form>
       </div>
     </div>

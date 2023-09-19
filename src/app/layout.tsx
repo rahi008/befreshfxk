@@ -202,7 +202,7 @@ export default function RootLayout({
           </dialog>
           <dialog id="aboutTheCompany" className="modal text-black">
             <div className="modal-box">
-              <h3 className="font-bold text-lg">About the Brand “BeFreshFX”</h3>
+              <h3 className="font-bold text-lg">About the Company</h3>
               <p className="py-4 text-justify">
                 South East Money Exchange Limited, established in 2016 and based
                 in Chattogram, Bangladesh, is a reputable money exchange
@@ -214,14 +214,10 @@ export default function RootLayout({
                 Exchange provides reliable currency exchange services.
               </p>
               <p className="py-4 text-justify">
-                South East Money Exchange Limited, established in 2016 and based
-                in Chattogram, Bangladesh, is a reputable money exchange
-                business operating under the license from Bangladesh Bank. As a
-                subsidiary of ‘X Limited’, the company benefits from the support
-                and resources of its parent organization. Alongside its sister
-                company, ‘Be Fresh Limited’, a leading travel agent and tour
-                operator in Bangladesh, South East Money Exchange provides
-                reliable currency exchange services.
+                We facilitate the hassle-free endorsement of foreign currency in
+                your passport, complying with all regulations. Ensure smooth
+                travel and financial transactions abroad with our efficient and
+                reliable service.
               </p>
               <div className="modal-action">
                 <form method="dialog">
@@ -328,12 +324,13 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
-        <footer className="footer footer-center bg-gray-900">
-          <div className="border-t-2 items-center gap-0 mb-2">
-            <span className="text-center text-white px-2">
-              Copyright 2016-2023. South East Money Exchange Limited, a &apos;X
-              Limited&apos; Company
+        <footer className="footer mx-2footer-center bg-gray-900">
+          <div className="w-full px-8 border-t-2 mb-2 flex flex-row justify-between">
+            <span className="text-white px-2">
+              Copyright 2016-2023. South East Money Exchange Limited(A Govt.
+              Approved Money Change)
             </span>
+            <span className="text-white">a &apos;X Limited&apos; Company</span>
           </div>
         </footer>
       </body>

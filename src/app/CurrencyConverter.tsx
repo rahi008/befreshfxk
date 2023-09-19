@@ -8,6 +8,7 @@ import CmbBox from "@/app/components/cmbBox";
 import { Currency_rate } from "@/app/models/semex";
 import DaisyUIModal from "@/app/components/errorModal";
 import Modal from "@/app/components/sendusQuery";
+import { format } from "date-fns";
 
 export default function CurrencyConverter() {
   const [showModal, setShowModal] = useState(false);
@@ -19,6 +20,7 @@ export default function CurrencyConverter() {
   const inputAmntRef = useRef<HTMLInputElement | null>(null);
   const [isHidden, setIsHidden] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [lastUpdate, setLastUpdate] = useState<Date>();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -71,6 +73,8 @@ export default function CurrencyConverter() {
           next: { revalidate: 0 },
         });
         const data = await response.json();
+        const upDt = data.find((item) => item.CurrencyCode === "USD");
+        await setLastUpdate(new Date(upDt.update_datetime));
         setCurrencyList(data);
       } catch (error) {
         console.log(error);
@@ -126,7 +130,9 @@ export default function CurrencyConverter() {
           Currency Converter
         </h2>
         <p className="text-xs">
-          (Exchange Rate Last updated on: 19 August 2023, 00:00 pm)
+          {`(Exchange Rate Last updated on: ${
+            lastUpdate ? format(lastUpdate, "d MMMM yyyy hh:mm:ss a") : ""
+          })`}
         </p>
         <div className="lg:mx-24">
           <div className="flex flex-col md:flex-row md:space-x-2">
@@ -176,7 +182,7 @@ export default function CurrencyConverter() {
             </div>
           </div>
           <button
-            className="btn-green-fw mt-4 mb-4 w-1/3 text-center text-2xl md:ml-2 font-bold"
+            className="btn-green-fw mt-4 mb-4  min-w-1/3 text-center text-2xl md:ml-2 font-bold"
             onClick={handleConvert}
           >
             CONVERT

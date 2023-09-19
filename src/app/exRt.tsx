@@ -5,17 +5,20 @@ import {
   faAngleUp,
   faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
+import { format } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { useEffect, useState } from "react";
 import CurrentDateTime from "@/app/components/dtTime";
 import Modal from "@/app/components/sendusQuery";
 import Link from "next/link";
+import { Currency_rate } from "./models/semex";
 export default function MyDaisyUITableComponent() {
-  const [rowData, setRowData] = useState([]);
+  const [rowData, setRowData] = useState<Currency_rate[]>([]);
   const [displayedRows, setDisplayedRows] = useState(5);
   const [showAll, setShowAll] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [lastUpdate, setLastUpdate] = useState<Date>();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -23,7 +26,32 @@ export default function MyDaisyUITableComponent() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  function findUpdateDatetime(rates: Currency_rate[]): Date | null {
+    if (rates.length === 0) {
+      return null; // Return null if the array is empty
+    }
 
+    // Use reduce to find the maximum update_datetime
+    const latestDatetime = rates.reduce((maxDate, rate) => {
+      return rate.update_datetime > maxDate ? rate.update_datetime : maxDate;
+    }, rates[0].update_datetime); // Initialize maxDate with the first update_datetime
+
+    return latestDatetime; // Return the latestDatetime as a Date object
+  }
+
+  // function findUpdateDatetime(rates: Currency_rate[]): Date | null {
+  //   if (rates.length === 0) {
+  //     return null; // Return null if the array is empty
+  //   }
+
+  //   // Use reduce to find the maximum update_datetime
+  //   const latestDatetime = rates.reduce((maxDate, rate) => {
+  //     const currentDatetime = rate.update_datetime || new Date(); // Default to a very early date if update_datetime is missing
+  //     return currentDatetime > maxDate ? currentDatetime : maxDate;
+  //   }, new Date()); // Initialize maxDate with a very early date
+  //   const dtStr = format(latestDatetime, "d MMMM yyyy hh:mm:ss a");
+  //   return dtStr;
+  // }
   useEffect(() => {
     async function fetchData() {
       try {
@@ -34,7 +62,9 @@ export default function MyDaisyUITableComponent() {
           next: { revalidate: 0 },
         });
         const data = await response.json();
-        setRowData(data);
+        const upDt = data.find((item) => item.CurrencyCode === "USD");
+        await setRowData(data);
+        await setLastUpdate(new Date(upDt.update_datetime));
       } catch (error) {
         console.log(error);
       }
@@ -57,7 +87,9 @@ export default function MyDaisyUITableComponent() {
       id="fxExchRt"
     >
       <p className="text-xs md:text-sm flex justify-end mr-2 md:mr-8">
-        Last Update: 22 July 2023 00:00 PM
+        {`Last Update: ${
+          lastUpdate ? format(lastUpdate, "d MMMM yyyy hh:mm:ss a") : ""
+        }`}
       </p>
       <h2 className="text-xl lg:text-4xl underline font-bold mb-2">
         Exchange Rate
@@ -507,6 +539,10 @@ export default function MyDaisyUITableComponent() {
             <FontAwesomeIcon icon={faAngleUp} beat />
           </button>
         )}
+      </div>
+      <div className="flex justify-start ml-2 md:ml-8">
+        *** Please note that prices are subject to change based on market
+        conditions.
       </div>
       <Modal isOpen={isModalOpen} onClose={closeModal} />
     </div>

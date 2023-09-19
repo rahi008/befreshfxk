@@ -15,6 +15,9 @@ export interface Currency_rate {
   CountryCode: string;
   CurrencyTagLine: string;
 }
+export interface dtObj {
+  update_datetime: Date;
+}
 export interface exRtSet {
   rows: Currency_rate[];
 }
