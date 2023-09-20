@@ -214,10 +214,11 @@ export default function RootLayout({
                 Exchange provides reliable currency exchange services.
               </p>
               <p className="py-4 text-justify">
-                We facilitate the hassle-free endorsement of foreign currency in
-                your passport, complying with all regulations. Ensure smooth
-                travel and financial transactions abroad with our efficient and
-                reliable service.
+                Operated by a professional team, this trusted company
+                prioritizes customer satisfaction and ensures secure and
+                efficient transactions. With the backing of a strong parent
+                company and a commitment to professionalism, South East Money
+                Exchange Limited has gained a solid reputation in the industry.
               </p>
               <div className="modal-action">
                 <form method="dialog">
@@ -334,7 +335,7 @@ export default function RootLayout({
           <div className="w-full px-8 border-t-2 mb-2 flex flex-row justify-between">
             <span className="text-white px-2">
               Copyright 2016-2023. South East Money Exchange Limited (a Govt.
-              Approved Money Change)
+              Approved Money Changer)
             </span>
             <Link
               href="http://www.xlimited.xyz/"

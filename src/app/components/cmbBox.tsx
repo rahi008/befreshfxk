@@ -30,9 +30,9 @@ export default function CmbBox({
   const inputRef = useRef<HTMLInputElement | null>(null);
   useEffect(() => {
     // Set selectedCurrency if value is provided
-    if (value !== undefined) {
-      setSelectedCurrency(value);
-    }
+    //if (value !== undefined) {
+    setSelectedCurrency(value);
+    //}
   }, [value]);
   const handleCurrencyChange = (currency: Currency_rate) => {
     setSelectedCurrency(currency); // Update selectedCurrency when a currency is selected

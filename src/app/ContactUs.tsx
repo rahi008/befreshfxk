@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ReactDOM from "react-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Inpt from "@/app/components/InputFltName";
+import Swal from "sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 
 import {
   faLocationDot,
@@ -24,67 +26,71 @@ interface IFormInput {
 }
 
 export default function Contacts() {
-  const { register, handleSubmit } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => sendMail(data);
+  const { register, handleSubmit, reset } = useForm<IFormInput>();
+  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+    sendMail(data);
+    reset();
+    Swal.fire({
+      title: "Success!",
+      text: "Your Message is Successfully Submitted!",
+      icon: "success", // 'success', 'error', 'warning', 'info', or 'question'
+    });
+  };
   const isProd = process.env.NODE_ENV === "production";
   const bsePath = isProd ? "/fxnew" : "";
   function sendMail(data: IFormInput) {
-    const adminMsg =
-      "Dear Sir/Madam," +
-      "\r\n \r\n" +
-      "One Visitor submitted a message to you." +
-      "\r\n\r\n" +
-      "Please see Visitor Message below-" +
-      "\r\n" +
-      "Name:  " +
-      data.name +
-      "\r\n" +
-      "Mobile: " +
-      data.mobile +
-      "\r\n" +
-      "Email:" +
-      data.email +
-      +"\r\n\r\n" +
-      "-----" +
-      "\r\n" +
-      data.details +
-      "\r\n" +
-      "-----" +
-      "\r\n" +
-      "Thank You for Choosing BefreshFX." +
-      "\r\n" +
-      ".............................................................." +
-      "\r\n" +
-      "This is an Auto-Generated E-mail, Please Do not reply to this E-mail.";
+    const adminMsg = `
+    <html>
+      <body>
+        <p>Dear Sir/Madam,</p>
+        <p>One Visitor Submitted a Message to You.</p>
+        <p>Please see Visitor Message below-</p>
+        <p>Name: {{name}}</p>
+        <p>Mobile: {{mobile}}</p>
+        <p>Email: {{email}}</p>
+        <p>-----</p>
+        <p>{{message}}</p>
+        <p>-----</p>
+        <p>Thank You for Choosing BefreshFX.</p>
+        <p>..............................................................</p>
+        <p>This is an Auto-Generated E-mail, Please Do not reply to this E-mail.</p>
+      </body>
+    </html>
+    `;
 
-    const clientMsg =
-      "Dear Sir/Madam," +
-      "\r\n \r\n" +
-      "One Visitor submitted a message to you." +
-      "\r\n\r\n" +
-      "Please see your Message below-" +
-      "\r\n" +
-      "-----" +
-      "\r\n" +
-      data.details +
-      "\r\n" +
-      "-----" +
-      "\r\n" +
-      "Thank You for Choosing BefreshFX." +
-      "\r\n" +
-      ".............................................................." +
-      "\r\n" +
-      "This is an Auto-Generated E-mail, Please Do not reply to this E-mail.";
-
+    const formattedAMsg = adminMsg
+      .replace("{{name}}", data.name)
+      .replace("{{mobile}}", data.mobile)
+      .replace("{{email}}", data.email)
+      .replace("{{message}}", data.details.replace(/\n/g, "<br>"));
+    const clientMsg = `
+    <html>
+      <body>
+        <p>Dear Sir/Madam,</p>
+        <p>Your Message is Submitted Successfully.</p>
+        <p>Please see your Message below-</p>
+        <p>-----</p>
+        <p>{{message}}</p>
+        <p>-----</p>
+        <p>Thank You for Choosing BeFreshFx.</p>
+        <p>..............................................................</p>
+        <p>This is an Auto-Generated E-mail, Please Do not reply to this E-mail.</p>
+      </body>
+    </html>
+    `;
+    const formattedCMsg = clientMsg.replace(
+      "{{message}}",
+      data.details.replace(/\n/g, "<br>")
+    );
     const mailData1: emailReq = new emailReqB(
       data.email,
       data.subject,
-      clientMsg
+      formattedCMsg
     );
     const mailData2: emailReq = new emailReqB(
       "info@befreshfx.com",
       data.subject,
-      adminMsg
+      formattedAMsg
     );
     const response1 = fetch(`${bsePath}/api/sendEmail`, {
       method: "POST",
@@ -170,24 +176,33 @@ export default function Contacts() {
           </a>
           <div className="mb-2 mt-2">
             {/* <label className="block text-gray-600">Name</label> */}
-            <Inpt {...register("name")} placeHolder={"Name"} id={"name"} />
+            <Inpt
+              // {...register("name")}
+              placeHolder={"Name"}
+              id="name"
+              name="name"
+              register={register}
+            />
           </div>
           {/* Mobile and Email */}
           <div className="mb-2 mt-2">
             {/* <label className="block text-gray-600">Mobile</label> */}
             <Inpt
-              {...register("mobile")}
-              placeHolder={"Mobile"}
-              id={"mobile"}
+              // {...register("mobile")}
+              placeHolder="Mobile"
+              id="mobile"
+              name="mobile"
+              register={register}
             />
           </div>
           <div className="mb-2 mt-2">
             {/* <label className="block text-gray-600">Email</label> */}
             <Inpt
-              required
-              {...register("email")}
-              id={"email"}
-              placeHolder={"Email"}
+              // {...register("email")}
+              id="email"
+              register={register}
+              name="email"
+              placeHolder="Email"
             />
           </div>
 
@@ -219,10 +234,7 @@ export default function Contacts() {
           </div>
           {/* Send Button */}
           <div className="flex justify-end ">
-            <button
-              type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded-md"
-            >
+            <button type="submit" className="btn-blue px-4 py-2">
               Send
             </button>
           </div>

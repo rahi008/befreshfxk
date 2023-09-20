@@ -100,6 +100,7 @@ export default function CurrencyConverter() {
       setFilteredToCurrencyList(
         currencyList.filter((currency) => currency.CurrencyCode !== "BDT")
       );
+      setToCurrency(undefined);
     } else {
       setFilteredToCurrencyList(
         currencyList.filter((currency) => currency.CurrencyCode === "BDT")
