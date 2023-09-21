@@ -3,7 +3,6 @@ import { render } from "@react-email/render";
 import WelcomeTemplate from "@/app/email/welcomeMail";
 import { sendEmail } from "@/app/utils/email";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ReactDOM from "react-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Inpt from "@/app/components/InputFltName";
 import Swal from "sweetalert2";
@@ -16,7 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { emailReq, emailReqB } from "@/app/models/semex";
 import { json } from "stream/consumers";
-
+export const revalidate = 0;
 interface IFormInput {
   name: string;
   mobile: string;
@@ -28,13 +27,21 @@ interface IFormInput {
 export default function Contacts() {
   const { register, handleSubmit, reset } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    sendMail(data);
-    reset();
-    Swal.fire({
-      title: "Success!",
-      text: "Your Message is Successfully Submitted!",
-      icon: "success", // 'success', 'error', 'warning', 'info', or 'question'
-    });
+    try {
+      sendMail(data);
+      reset();
+      Swal.fire({
+        title: "Success!",
+        text: "Your Message is Successfully Submitted!",
+        icon: "success", // 'success', 'error', 'warning', 'info', or 'question'
+      });
+    } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: error,
+        icon: "error", // 'success', 'error', 'warning', 'info', or 'question'
+      });
+    }
   };
   const isProd = process.env.NODE_ENV === "production";
   const bsePath = isProd ? "/fxnew" : "";
@@ -165,15 +172,11 @@ export default function Contacts() {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="text-start px-4 md:w-1/3"
+          className="text-start px-4 md:w-1/3 shadow-lg border-black border-2 rounded-2xl mt-2 pb-2 md:pb-0 md:mt-0 md:ml-2"
         >
-          <a
-            href="#"
-            id="openModalButton"
-            className="underline justify-start mb-2"
-          >
+          <label id="openModalButton" className="underline justify-start mb-2">
             Tell Us More
-          </a>
+          </label>
           <div className="mb-2 mt-2">
             {/* <label className="block text-gray-600">Name</label> */}
             <Inpt

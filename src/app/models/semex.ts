@@ -35,3 +35,19 @@ export class emailReqB implements emailReq {
     public body: string
   ) {}
 }
+// models.ts
+export interface visitor_count {
+  atn: number;
+  v_date: string;
+  cnt: number;
+}
+export interface vt_cnt {
+  total_count: number;
+}
+export interface gov_circ {
+  particulars: string;
+  issued_by: string;
+  issue_date: Date;
+  filename: string;
+  viewstat: number;
+}

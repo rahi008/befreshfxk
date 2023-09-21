@@ -18,6 +18,7 @@ import {
 import { faMobile } from "@fortawesome/free-solid-svg-icons";
 import Image from "@/app/components/imge";
 import Link from "next/link";
+import Vcount from "./vcount";
 config.autoAddCss = false;
 
 const inter = Inter({ subsets: ["latin"] });
@@ -293,7 +294,7 @@ export default function RootLayout({
             </div>
           </div>
           <div>
-            <Link href="" className="link link-hover">
+            <Link href="/fxnew/govCir" className="link link-hover">
               Govt. Circulars
             </Link>
             <Link href="" className="link link-hover">
@@ -305,6 +306,9 @@ export default function RootLayout({
             >
               System Login
             </Link>
+            <span className="md:mt-6">
+              <Vcount></Vcount>
+            </span>
           </div>
           <div>
             <span className="footer-title">Get the App</span>

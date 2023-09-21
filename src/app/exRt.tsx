@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import CurrentDateTime from "@/app/components/dtTime";
 import Modal from "@/app/components/sendusQuery";
 import Link from "next/link";
-import { Currency_rate } from "./models/semex";
+import { Currency_rate } from "@/app/models/semex";
 export default function MyDaisyUITableComponent() {
   const [rowData, setRowData] = useState<Currency_rate[]>([]);
   const [displayedRows, setDisplayedRows] = useState(5);

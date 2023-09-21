@@ -10,7 +10,7 @@ export async function GET() {
     //const knexm = require("knex")(knexConfig);
     //await sql.connect(sqlConfig);
     const query =
-      "select * from Currency_rate where view_status=0 order by Currency_Priority asc";
+      "select * from Currency_rate where view_status=0 or CurrencyCode='BDT' order by Currency_Priority asc";
     //const result = await sql.query(query);
     //const data = result.recordset;
     // Execute the raw SQL query

@@ -9,6 +9,7 @@ import { Currency_rate } from "@/app/models/semex";
 import DaisyUIModal from "@/app/components/errorModal";
 import Modal from "@/app/components/sendusQuery";
 import { format } from "date-fns";
+import Swal from "sweetalert2";
 
 export default function CurrencyConverter() {
   const [showModal, setShowModal] = useState(false);
@@ -21,6 +22,7 @@ export default function CurrencyConverter() {
   const [isHidden, setIsHidden] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [lastUpdate, setLastUpdate] = useState<Date>();
+  const [conversionRate, setConversionRate] = useState<string>(null);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -41,10 +43,19 @@ export default function CurrencyConverter() {
       fromCurrency === undefined ||
       toCurrency === undefined
     ) {
-      alert("Please Select Both From and To Currency!");
+      Swal.fire({
+        title: "Error!",
+        text: "Please Select Both From and To Currency!",
+        icon: "error",
+      });
       return;
     }
     if (fromCurrency === toCurrency) {
+      Swal.fire({
+        title: "Error!",
+        text: "From Currency and To Currency can not be same!",
+        icon: "error",
+      });
       setErrorMessage("error");
       //setShowModal(true);
     } else {
@@ -53,11 +64,13 @@ export default function CurrencyConverter() {
           Number(fromCurrency?.Buying_Rate) *
           Number(inputAmntRef.current?.value);
         setConvertedAmount(convertedAmount);
+        setConversionRate(fromCurrency?.Buying_Rate.toFixed(2));
       } else {
         const convertedAmount =
           Number(inputAmntRef.current?.value) /
           Number(toCurrency?.Selling_Rate);
         setConvertedAmount(convertedAmount);
+        setConversionRate(toCurrency?.Selling_Rate.toFixed(2));
       }
       setIsHidden(false);
     }
@@ -183,7 +196,7 @@ export default function CurrencyConverter() {
             </div>
           </div>
           <button
-            className="btn-green-fw mt-4 mb-4  min-w-1/3 text-center text-2xl md:ml-2 font-bold"
+            className="btn-green-fw mt-4 mb-4  md:w-1/3  text-center text-2xl md:ml-2 font-bold"
             onClick={handleConvert}
           >
             CONVERT
@@ -195,6 +208,9 @@ export default function CurrencyConverter() {
             {convertedAmount !== null && (
               <>
                 <p className="text-xl">You will get</p>
+                <p className="text-xl">
+                  {conversionRate ? `(@BDT ${conversionRate})` : ``}
+                </p>
                 <p className="text-green-500 font-bold text-4xl">{`${toCurrency?.CurrencyCode} ${convertedAmount.toLocaleString(
                   "en-in"
                 )}`}</p>
