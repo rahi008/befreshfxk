@@ -2,16 +2,20 @@
 import Knex from "knex";
 import knexInstance from "@/app/utils/knexfile"; // Import the Knex.js configuration
 import { visitor_count, vt_cnt } from "../models/semex";
+import { NextResponse } from "next/server";
 export const revalidate = 0;
 
-export async function getTotalVisitorCount(): Promise<number> {
+export async function getTotalVisitorCount(): Promise<Number> {
   // Query the database to retrieve all records and calculate the total count
-  const totalVisitorCount = await knexInstance<visitor_count>("visitor_count")
-    .sum("cnt as total_count")
-    .first();
-  console.log(totalVisitorCount);
-  // Extract the total count from the result
-  return Number(totalVisitorCount) || 0;
+  // const totalVisitorCount = await knexInstance<visitor_count>("visitor_count")
+  //   .sum("cnt as total_count")
+  //   .first();
+  // console.log(totalVisitorCount);
+  // // Extract the total count from the result
+  const query = "SELECT sum(cnt) as ttlCnt from [semex].[dbo].[visitor_count]";
+  const totalVisitorCount = await knexInstance.raw(query);
+  console.log(totalVisitorCount[0].ttlCnt);
+  return Number(totalVisitorCount[0].ttlCnt);
 }
 
 export async function incrementvisitor_count(): Promise<visitor_count> {

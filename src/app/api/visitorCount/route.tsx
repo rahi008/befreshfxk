@@ -9,6 +9,7 @@ export async function GET() {
   try {
     const visitorCount = await incrementvisitor_count();
     const totalCount = await getTotalVisitorCount();
+    console.log(totalCount);
     return NextResponse.json(
       { count: visitorCount.cnt, totalCount: totalCount },
       { status: 200 }
