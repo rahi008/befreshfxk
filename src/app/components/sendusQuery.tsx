@@ -17,13 +17,7 @@ interface IQFormInput {
   amnt: number;
 }
 
-export default function Modal({
-  isOpen,
-  onClose,
-}: {
-  isOpen: boolean;
-  onClose: () => void; // Change the type of onClose
-}) {
+export default function Modal({ isOpen, onClose }) {
   const [selectedOption, setSelectedOption] = useState<string | null>("Buy");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");

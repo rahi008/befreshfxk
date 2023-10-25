@@ -25,6 +25,7 @@
     "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
+    "@types/signalr-no-jquery": "^0.1.4",
     "autoprefixer": "10.4.15",
     "better-sqlite3": "^8.6.0",
     "daisyui": "^3.7.4",
@@ -57,6 +58,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "@types/nodemailer": "^6.4.10"
+    "@types/nodemailer": "^6.4.10",
+    "signalr-no-jquery": "^0.2.0"
   }
 }

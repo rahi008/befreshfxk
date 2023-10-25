@@ -12,7 +12,7 @@ export default function Vcount() {
           next: { revalidate: 0 },
         });
         const data = await response.json();
-        await setVc(data.totalCount);
+        await setVc(data.totalCount | 0);
       } catch (error) {
         console.log(error);
       }
