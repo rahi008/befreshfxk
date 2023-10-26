@@ -127,11 +127,19 @@ export default function GovCirTbl() {
       </div>
       <div className="flex justify-end mt-4 mr-6">
         {!showAll ? (
-          <button onClick={handleMoreClick} className="btn-blue">
+          <button
+            title="moreClick"
+            onClick={handleMoreClick}
+            className="btn-blue"
+          >
             <FontAwesomeIcon icon={faAngleDown} beat />
           </button>
         ) : (
-          <button onClick={handleLessClick} className="btn-blue">
+          <button
+            title="lessClick"
+            onClick={handleLessClick}
+            className="btn-blue"
+          >
             <FontAwesomeIcon icon={faAngleUp} beat />
           </button>
         )}

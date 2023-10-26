@@ -51,3 +51,13 @@ export interface gov_circ {
   filename: string;
   viewstat: number;
 }
+export interface currency_news {
+  atn: number;
+  headline: string;
+  publishDate: Date;
+  newsSource: string;
+  newsUrl: string;
+  imageFileName: string;
+  save_by: string;
+  save_time: Date;
+}

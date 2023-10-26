@@ -297,7 +297,7 @@ export default function RootLayout({
             <Link href="/fxnew/govCir" className="link link-hover">
               Govt. Circulars
             </Link>
-            <Link href="" className="link link-hover">
+            <Link href="/fxnew/currencyNews" className="link link-hover">
               News
             </Link>
             <Link
