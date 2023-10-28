@@ -5,6 +5,8 @@ import NewsList from "@/app/currencyNews/newsList";
 import { currency_news } from "@/app/models/semex";
 import { useEffect, useState } from "react";
 
+export const revalidate = 0;
+
 // interface HomeProps {
 //   newsData: currency_news[];
 // }
@@ -25,10 +27,7 @@ export default function News() {
       try {
         const isProd = process.env.NODE_ENV === "production";
         const bsePath = isProd ? "/fxnew/" : "";
-        const response = await fetch(`${bsePath}/api/getNews`, {
-          // cache: 'no-cache' or 'no-store'
-          next: { revalidate: 0 },
-        });
+        const response = await fetch(`${bsePath}/api/getNews`);
         const data = await response.json();
         setapiData(data);
         // const upDt = data.find((item) => item.CurrencyCode === "USD");

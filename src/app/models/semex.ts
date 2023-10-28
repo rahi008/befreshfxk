@@ -54,7 +54,7 @@ export interface gov_circ {
 export interface currency_news {
   atn: number;
   headline: string;
-  publishDate: Date;
+  publishDate: string;
   newsSource: string;
   newsUrl: string;
   imageFileName: string;

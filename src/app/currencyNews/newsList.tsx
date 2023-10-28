@@ -9,6 +9,8 @@ interface NewsListProps {
   itemsPerPage: number;
 }
 
+export const revalidate = 0;
+
 const NewsList: React.FC<NewsListProps> = ({ newsData, itemsPerPage }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -21,9 +23,9 @@ const NewsList: React.FC<NewsListProps> = ({ newsData, itemsPerPage }) => {
   };
 
   return (
-    <div className="news-list flex m-3">
+    <div className="news-list md:flex m-3">
       {currentItems.map((news, index) => (
-        <div key={index} className="card w-96 glass m-4">
+        <div key={index} className="card w-84 glass m-4">
           <figure>
             <img
               src={`https://befreshfx.com/public/news/${news.imageFileName}`}
@@ -31,12 +33,14 @@ const NewsList: React.FC<NewsListProps> = ({ newsData, itemsPerPage }) => {
             />
           </figure>
           <div className="card-body">
+            <p>{`Date: ${news.publishDate}`}</p>
+            <p>{`Source: ${news.newsSource}`}</p>
             <h2 className="card-title">{news.headline}</h2>
-            <p>{news.newsSource}</p>
+
             <div className="card-actions justify-end">
               <Link
                 target="_blank"
-                href={`${news.newsSource}`}
+                href={`${news.newsUrl}`}
                 className="flex justify-center btn-lblue md:mx-10"
               >
                 Details
