@@ -114,7 +114,7 @@ export default function GovCirTbl() {
                 <td style={{ width: "10%" }}>
                   <Link
                     target="_blank"
-                    href={`https://www.befreshfx.com/fxnew/public/circulars/${item.filename}`}
+                    href={`https://www.befreshfx.com/public/circulars/${item.filename}`}
                     className="flex justify-center btn-lblue md:mx-10"
                   >
                     View PDF

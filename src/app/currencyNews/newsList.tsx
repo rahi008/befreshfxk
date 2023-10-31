@@ -28,7 +28,7 @@ const NewsList: React.FC<NewsListProps> = ({ newsData, itemsPerPage }) => {
         <div key={index} className="card md:w-80 glass m-4">
           <figure className="md:h-44">
             <img
-              src={`https://befreshfx.com/fxnew/public/news/${news.imageFileName}`}
+              src={`https://befreshfx.com/public/news/${news.imageFileName}`}
               alt="news"
             />
           </figure>
