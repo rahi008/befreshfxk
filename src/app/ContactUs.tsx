@@ -181,6 +181,7 @@ export default function Contacts() {
             {/* <label className="block text-gray-600">Name</label> */}
             <Inpt
               // {...register("name")}
+              req={true}
               placeHolder={"Name"}
               id="name"
               name="name"
@@ -192,6 +193,7 @@ export default function Contacts() {
             {/* <label className="block text-gray-600">Mobile</label> */}
             <Inpt
               // {...register("mobile")}
+              req={true}
               placeHolder="Mobile"
               id="mobile"
               name="mobile"
@@ -202,6 +204,7 @@ export default function Contacts() {
             {/* <label className="block text-gray-600">Email</label> */}
             <Inpt
               // {...register("email")}
+              req={true}
               id="email"
               register={register}
               name="email"

@@ -270,6 +270,7 @@ export default function Modal({ isOpen, onClose }) {
                       />
                       <input
                         {...register("amnt")}
+                        required
                         ref={inptAmntRef}
                         type="text"
                         placeholder="Amount"
@@ -294,6 +295,7 @@ export default function Modal({ isOpen, onClose }) {
                     <div className="mt-4">
                       <input
                         {...register("name")}
+                        required
                         type="text"
                         placeholder="Name"
                         className="w-full border border-gray-300 rounded-md px-3 py-2"
@@ -304,12 +306,14 @@ export default function Modal({ isOpen, onClose }) {
                       <div className="flex flex-col md:flex-row md:space-x-4">
                         <input
                           {...register("mobile")}
+                          required
                           type="text"
                           placeholder="Mobile"
                           className="md:w-1/2 border border-gray-300 rounded-md mb-2 md:mb-0 md:px-3 py-2"
                         />
                         <input
                           {...register("email")}
+                          required
                           type="email"
                           placeholder="Email"
                           className="md:w-1/2 border border-gray-300 rounded-md md:px-3 py-2"

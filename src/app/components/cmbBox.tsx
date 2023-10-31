@@ -3,11 +3,13 @@ import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/24/solid";
 import { Combobox } from "@headlessui/react";
 import { Currency_rate } from "@/app/models/semex";
 import React from "react";
+import { propagateServerField } from "next/dist/server/lib/render-server";
 
 interface CmbBoxProps {
   currencyList: Currency_rate[]; // Pass the currency list as a prop
   onChange: (selectedCurrency: Currency_rate) => void; // Add this line
   value?: Currency_rate;
+  req?: boolean;
 }
 
 function classNames(...classes: (string | boolean)[]) {
@@ -15,6 +17,7 @@ function classNames(...classes: (string | boolean)[]) {
 }
 
 export default function CmbBox({
+  req = false,
   value = undefined,
   currencyList,
   onChange,
@@ -58,6 +61,7 @@ export default function CmbBox({
       <div className="relative w -full rounded-md border border-gray-300 bg-white pl-3 pr-10 shadow-sm focus:border-indigo-500  focus:ring-1 focus:ring-indigo-500 sm:text-sm">
         <span className={`fi fi-${selectedCurrency?.CountryCode} mr-2`}></span>
         <Combobox.Input
+          required={req}
           ref={inputRef}
           className="border-0 w-5/6 selection:border-0 focus:ring-0"
           onChange={(event) => setQuery(event.target.value)}
