@@ -7,7 +7,8 @@ const sql = require("mssql");
 export const revalidate = 0;
 export async function GET() {
   try {
-    const query = "select * from gov_circ where viewstat=1 order by atn desc";
+    const query =
+      "select * from gov_circ where viewstat=1 order by issue_date desc";
 
     const result1 = await knexInstance.raw(query);
 

@@ -5,12 +5,22 @@ import { NextResponse } from "next/server";
 import { Currency_rate } from "@/app/models/semex";
 const sql = require("mssql");
 export const revalidate = 0;
-export async function GET() {
+export async function GET(request: Request) {
   try {
     //const knexm = require("knex")(knexConfig);
     //await sql.connect(sqlConfig);
+    const { searchParams } = new URL(request.url);
+    const bdt = searchParams.get("bdt");
+    var rstring = "";
+    if (bdt == "0") {
+      rstring = "";
+    } else {
+      rstring = "or CurrencyCode='BDT'";
+    }
     const query =
-      "select * from Currency_rate where view_status=0 or CurrencyCode='BDT' order by Currency_Priority asc";
+      "select * from Currency_rate where view_status=0 " +
+      rstring +
+      " order by Currency_Priority asc";
     //const result = await sql.query(query);
     //const data = result.recordset;
     // Execute the raw SQL query

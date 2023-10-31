@@ -45,7 +45,7 @@ export default function MyDaisyUITableComponent() {
       try {
         const isProd = process.env.NODE_ENV === "production";
         const bsePath = isProd ? "/fxnew/" : "";
-        const response = await fetch(`${bsePath}/api/getCurrencyRates`, {
+        const response = await fetch(`${bsePath}/api/getCurrencyRates?bdt=0`, {
           //cache:'no-cache'/'no-store'
           next: { revalidate: 0 },
         });
