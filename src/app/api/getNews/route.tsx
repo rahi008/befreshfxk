@@ -8,7 +8,7 @@ export const revalidate = 0;
 export async function GET() {
   try {
     const query =
-      "SELECT [atn],[headline],FORMAT(publishDate,'dd/MMM/yyyy') as publishDate,[newsSource],[imageFileName],[save_by],[save_time],[newsUrl] FROM [semex].[dbo].[currency_news] order by publishDate desc";
+      "SELECT [atn],[headline],FORMAT(publishDate,'dd/MMM/yyyy') as publishDate,[newsSource],[imageFileName],[save_by],[save_time],[newsUrl] FROM [semex].[dbo].[currency_news] order by publishDate";
 
     const result1 = await knexInstance.raw(query);
 
