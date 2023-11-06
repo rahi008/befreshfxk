@@ -55,7 +55,7 @@ export default function RootLayout({
                 South East Money Exchange Limited
               </p>
               <p className="font-bold text-xs md:text-xs">
-                Govt. Approved Money Changer
+                (Govt. Approved Money Changer)
               </p>
             </div>
           </div>
