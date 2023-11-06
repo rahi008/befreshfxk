@@ -144,6 +144,9 @@ export default function RootLayout({
                   <Link href="#fxServices">Services</Link>
                 </li>
                 <li>
+                  <Link href="/fxnew/currencyNews">News</Link>
+                </li>
+                <li>
                   <Link href="#fxContactus">Contact Us</Link>
                 </li>
               </ul>
@@ -164,6 +167,9 @@ export default function RootLayout({
             </li>
             <li>
               <Link href="#fxServices">Services</Link>
+            </li>
+            <li>
+              <Link href="/fxnew/currencyNews">News</Link>
             </li>
             <li>
               <Link href="#fxContactus">Contact Us</Link>

@@ -23,7 +23,7 @@ const NewsList: React.FC<NewsListProps> = ({ newsData, itemsPerPage }) => {
   };
 
   return (
-    <div className="news-list md:flex m-3">
+    <div className="news-list md:flex md:flex-wrap m-3">
       {currentItems.map((news, index) => (
         <div key={index} className="card md:w-80 bg-white m-4">
           <figure className="md:h-44">
@@ -33,7 +33,7 @@ const NewsList: React.FC<NewsListProps> = ({ newsData, itemsPerPage }) => {
             />
           </figure>
           <div className="card-body">
-            <p>{`Date: ${news.publishDate}`}</p>
+            <p>{`Date: ${news.pubDate}`}</p>
             <p>{`Source: ${news.newsSource}`}</p>
             <h2 className="card-title">{news.headline}</h2>
 
