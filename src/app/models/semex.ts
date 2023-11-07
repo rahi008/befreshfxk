@@ -14,6 +14,7 @@ export interface Currency_rate {
   CurrencyCode: string;
   CountryCode: string;
   CurrencyTagLine: string;
+  Details_url: string;
 }
 export interface dtObj {
   update_datetime: Date;
