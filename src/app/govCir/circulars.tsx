@@ -81,7 +81,10 @@ export default function GovCirTbl() {
               <th style={{ width: "10%" }} className="text-sm md:text-lg ">
                 Particulars
               </th>
-              <th style={{ width: "10%" }} className="text-sm md:text-lg">
+              <th
+                style={{ width: "10%" }}
+                className="text-sm text-center md:text-lg"
+              >
                 Issued by
               </th>
               <th
