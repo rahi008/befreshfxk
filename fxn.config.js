@@ -2,10 +2,9 @@ module.exports = {
   apps: [
     {
       name: "fxnew",
-      instances: "1", // Or a number of instances
+      instances: "1",
       script: "node_modules/next/dist/bin/next",
-      args: "start", //running on port 3000
-      watch: false,
+      args: "start -p 3004",
     },
   ],
 };
